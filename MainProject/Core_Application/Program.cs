@@ -9,6 +9,8 @@ do
     {
         case "1":
             Console.Clear();
+            NewEmployeeMenu();
+            Console.Clear();
             break;
 
         case "2":
@@ -40,11 +42,7 @@ do
             break;
 
         default:
-            Console.Clear();
-
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Incorrect Input! Please try again!");
-            Console.ResetColor();
+            DisplayErrorMessage("Incorrect Input! Please try again!");
             break;
     }
 }
@@ -72,4 +70,82 @@ static string MainMenu()
 
     string userInput = Console.ReadLine();
     return userInput;
+}
+
+static void NewEmployeeMenu()
+{
+    string title = "***********************************\n**       Add New Employee        **\n***********************************";
+    string userInput;
+
+    do
+    {
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine(title);
+        Console.ResetColor();
+        Console.WriteLine();
+
+        Console.WriteLine("Please select role for new Employee:");
+        Console.WriteLine("1. Manager");
+        Console.WriteLine("2. Accountant");
+        Console.WriteLine("3. Chef");
+        Console.WriteLine("4. Bartender");
+        Console.WriteLine("5. Waitress");
+
+        DisplayBackMessage();
+
+        Console.Write("Your input: ");
+
+        userInput = Console.ReadLine();
+
+        switch(userInput) 
+        {
+            case "1":
+                Console.Clear();
+                NewEmployeeMenu();
+                break;
+
+            case "2":
+                Console.Clear();
+                break;
+
+            case "3":
+                Console.Clear();
+                break;
+
+            case "4":
+                Console.Clear();
+                break;
+
+            case "5":
+                Console.Clear();
+                break;
+
+            case "menu":
+                break;
+
+            default:
+                DisplayErrorMessage("Incorrect Input! Please Try again!");
+                break;
+        }
+    }
+    while(userInput != "menu");
+    
+}
+
+static void DisplayErrorMessage(string message)
+{
+    Console.Clear();
+
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine(message);
+    Console.WriteLine();
+    Console.ResetColor();
+}
+
+static void DisplayBackMessage() 
+{
+    Console.WriteLine();
+    Console.ForegroundColor = ConsoleColor.Green;
+    Console.WriteLine("Type menu to go back to Main Menu");
+    Console.ResetColor();
 }
