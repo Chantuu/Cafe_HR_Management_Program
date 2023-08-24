@@ -13,11 +13,6 @@ namespace Cafe_Program.HR
 
         }
 
-        public Bartender(string firstName, string lastName, string email, double rate, DateOnly birthDate, DateOnly hireDate, string address1, string zipcode, string city) : base(firstName, lastName, email, rate, birthDate, hireDate, address1, zipcode, city)
-        {
-
-        }
-
         public void MakeDrink()
         {
             string[] drinks = new string[7] { "Margarita", "Martini", "Old Fashioned", "Mimosa", "Moscow Mule", "Cosmopolitan", "Bloody Mary" };

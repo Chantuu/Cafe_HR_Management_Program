@@ -13,11 +13,6 @@ namespace Cafe_Program.HR
 
         }
 
-        public Manager(string firstName, string lastName, string email, double rate, DateOnly birthDate, DateOnly hireDate, string address1, string zipcode, string city) : base(firstName, lastName, email, rate, birthDate, hireDate, address1, zipcode, city)
-        {
-
-        }
-
         public void AttendMeeting() 
         {
             numberOfHoursWorked += 5;

@@ -76,11 +76,6 @@ namespace Cafe_Program.HR
             Address = new Address(address1, address2, zipcode, city);
         }
 
-        public Employee(string firstName, string lastName, string email, double rate, DateOnly birthDate, DateOnly hireDate, string address1, string zipcode, string city) : this (firstName, lastName, email, rate, birthDate, hireDate, address1, "", zipcode, city)
-        {
-            Address = new Address(address1, zipcode, city);
-        }
-
         public virtual void PerformWork(int numberOfHours)
         {
             numberOfHoursWorked = numberOfHours;

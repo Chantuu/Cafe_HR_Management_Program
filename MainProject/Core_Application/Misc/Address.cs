@@ -46,11 +46,6 @@ namespace Cafe_Program.Misc
             City = city;
         }
 
-        public Address(string address1, string zipcode, string city) : this(address1, "", zipcode, city)
-        {
-
-        }
-
         public void Display()
         {
             if (Address_2 == "")
