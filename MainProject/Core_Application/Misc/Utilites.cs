@@ -9,9 +9,10 @@ namespace Cafe_Program.Misc
 {
     internal class Utilites
     {
-        public static string mainMenuTitle = "***********************************\n**         HR Management         **\n***********************************";
-        public static string newEmployeeMenuTitle = "***********************************\n**       Add New Employee        **\n***********************************";
-        public static string currentEmployeesMenuTitle = "***********************************\n**       Current Employees       **\n***********************************";
+        public const string mainMenuTitle = "***********************************\n**         HR Management         **\n***********************************";
+        public const string newEmployeeMenuTitle = "***********************************\n**       Add New Employee        **\n***********************************";
+        public const string employeeOperationsMenuTitle = "***********************************\n**      Employee Opeartions      **\n***********************************";
+        public const string currentEmployeesMenuTitle = "***********************************\n**       Current Employees       **\n***********************************";
 
         public static List<Manager> managers = new List<Manager>();
         public static List<Accountant> accoutants = new List<Accountant>();
