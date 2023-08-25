@@ -90,6 +90,7 @@ namespace Cafe_Program.App
         {
             Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current employees:");
+            Processes.listAllEmployeesProcess(EmployeeSelection.all);
             Messages.DisplayPageMessage(1, 6);
             Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
             Console.Write("Your input: ");
@@ -100,6 +101,7 @@ namespace Cafe_Program.App
         {
             Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current managers:");
+            Processes.listAllEmployeesProcess(EmployeeSelection.manager);
             Messages.DisplayPageMessage(2, 6);
             Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
             Console.Write("Your input: ");
@@ -110,6 +112,7 @@ namespace Cafe_Program.App
         {
             Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current accountants:");
+            Processes.listAllEmployeesProcess(EmployeeSelection.accountant);
             Messages.DisplayPageMessage(3, 6);
             Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
             Console.Write("Your input: ");
@@ -120,6 +123,7 @@ namespace Cafe_Program.App
         {
             Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current chefs:");
+            Processes.listAllEmployeesProcess(EmployeeSelection.chef);
             Messages.DisplayPageMessage(4, 6);
             Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
             Console.Write("Your input: ");
@@ -130,6 +134,7 @@ namespace Cafe_Program.App
         {
             Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current bartenders:");
+            Processes.listAllEmployeesProcess(EmployeeSelection.bartender);
             Messages.DisplayPageMessage(5, 6);
             Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
             Console.Write("Your input: ");
@@ -140,6 +145,7 @@ namespace Cafe_Program.App
         {
             Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current waitresses:");
+            Processes.listAllEmployeesProcess(EmployeeSelection.waitress);
             Messages.DisplayPageMessage(6, 6);
             Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
             Console.Write("Your input: ");

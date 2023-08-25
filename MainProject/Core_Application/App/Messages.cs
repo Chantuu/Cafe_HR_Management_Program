@@ -11,7 +11,7 @@ namespace Cafe_Program.App
         public static void DisplayErrorMessage(string message)
         {
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine(message);
             Console.WriteLine();
             Console.ResetColor();
@@ -26,11 +26,11 @@ namespace Cafe_Program.App
             Console.ResetColor();
         }
 
-        public static void DisplayNavigationMessage(string text)
+        public static void DisplayNavigationMessage(string message)
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(text);
+            Console.WriteLine(message);
             Console.ResetColor();
         }
 
@@ -55,7 +55,13 @@ namespace Cafe_Program.App
             {
                 throw new ArgumentException("currentPage and pageCount must be greater than zero and currentPage must not be greater than pageCount.");
             }
+        }
 
+        public static void DisplayListWarningMessage(string text)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(text);
+            Console.ResetColor();
         }
     }
 }

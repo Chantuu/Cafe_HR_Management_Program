@@ -177,5 +177,119 @@ namespace Cafe_Program.App
             }
             while (userInput != "menu");
         }
+
+        public static void listAllEmployeesProcess(EmployeeSelection filter)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+
+            switch (filter)
+            {
+                case EmployeeSelection.manager:
+                    if (Utilites.managers.Count == 0)
+                    {
+                        Messages.DisplayListWarningMessage("There are not any manager employees");
+                    }
+                    else
+                    {
+                        foreach (Manager manager in Utilites.managers)
+                        {
+                            manager.DisplayShortInfo();
+                        }
+                    }
+                    break;
+
+                case EmployeeSelection.accountant:
+                    if (Utilites.accoutants.Count == 0)
+                    {
+                        Messages.DisplayListWarningMessage("There are not any accountant employees");
+                    }
+                    else
+                    {
+                        foreach (Accountant accountant in Utilites.accoutants)
+                        {
+                            accountant.DisplayShortInfo();
+                        }
+                    }
+                    break;
+
+                case EmployeeSelection.chef:
+                    if (Utilites.chefs.Count == 0)
+                    {
+                        Messages.DisplayListWarningMessage("There are not any chef employees");
+                    }
+                    else
+                    {
+                        foreach (Chef chef in Utilites.chefs)
+                        {
+                            chef.DisplayShortInfo();
+                        }
+                    }
+                    break;
+
+                case EmployeeSelection.bartender:
+                    if (Utilites.bartenders.Count == 0)
+                    {
+                        Messages.DisplayListWarningMessage("There are not any bartender employees");
+                    }
+                    else
+                    {
+                        foreach (Bartender bartender in Utilites.bartenders)
+                        {
+                            bartender.DisplayShortInfo();
+                        }
+                    }
+                    break;
+
+                case EmployeeSelection.waitress:
+                    if (Utilites.waitresses.Count == 0)
+                    {
+                        Messages.DisplayListWarningMessage("There are not any waitress employees");
+                    }
+                    else
+                    {
+                        foreach (Waitress waitress in Utilites.waitresses)
+                        {
+                            waitress.DisplayShortInfo();
+                        }
+                    }
+                    break;
+
+                case EmployeeSelection.all:
+                    if (Utilites.managers.Count == 0 && Utilites.accoutants.Count == 0 && Utilites.chefs.Count == 0 && Utilites.bartenders.Count == 00 && Utilites.waitresses.Count == 0)
+                    {
+                        Messages.DisplayListWarningMessage("There are not any current employees");
+                    }
+                    else
+                    {
+                        foreach (Manager manager in Utilites.managers)
+                        {
+                            manager.DisplayShortInfo();
+                        }
+
+                        foreach (Accountant accountant in Utilites.accoutants)
+                        {
+                            accountant.DisplayShortInfo();
+                        }
+
+                        foreach (Chef chef in Utilites.chefs)
+                        {
+                            chef.DisplayShortInfo();
+                        }
+
+                        foreach (Bartender bartender in Utilites.bartenders)
+                        {
+                            bartender.DisplayShortInfo();
+                        }
+
+                        foreach (Waitress waitress in Utilites.waitresses)
+                        {
+                            waitress.DisplayShortInfo();
+                        }
+                    }
+                    break;
+            }
+
+            Console.ResetColor();
+        }
     }
 }
