@@ -45,7 +45,7 @@ namespace Cafe_Program.App
 
         public static void DisplayPageMessage(int currentPage, int pageCount)
         {
-            if (currentPage > 0 && pageCount > 0 && currentPage < pageCount) 
+            if (currentPage > 0 && pageCount > 0 && currentPage <= pageCount) 
             {
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Yellow;
