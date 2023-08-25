@@ -26,20 +26,37 @@ namespace Cafe_Program.App
             Console.ResetColor();
         }
 
-        public static void DisplayBackMessage()
+        public static void DisplayNavigationMessage(string text)
         {
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Type menu to go back to Main Menu");
+            Console.WriteLine(text);
             Console.ResetColor();
         }
 
         public static void DisplayTitle(string title)
         {
+            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(title);
             Console.ResetColor();
             Console.WriteLine();
+        }
+
+        public static void DisplayPageMessage(int currentPage, int pageCount)
+        {
+            if (currentPage > 0 && pageCount > 0 && currentPage < pageCount) 
+            {
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($"Page {currentPage} of {pageCount}");
+                Console.ResetColor();
+            }
+            else
+            {
+                throw new ArgumentException("currentPage and pageCount must be greater than zero and currentPage must not be greater than pageCount.");
+            }
+
         }
     }
 }
