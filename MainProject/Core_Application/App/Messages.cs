@@ -36,7 +36,6 @@ namespace Cafe_Program.App
 
         public static void DisplayTitle(string title)
         {
-            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine(title);
             Console.ResetColor();

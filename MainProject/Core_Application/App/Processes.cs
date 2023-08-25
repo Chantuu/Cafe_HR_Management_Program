@@ -91,5 +91,91 @@ namespace Cafe_Program.App
                 Messages.DisplayErrorMessage(ex.Message);
             }
         }
+
+        public static void currentEmployeesMenuChoiceProcess()
+        {
+            string userInput = "";
+            string currentPage = "1";
+
+            Menus.currentEmployeesMenuPage1(ref userInput);
+
+            do
+            {
+                switch (userInput)
+                {
+                    case "1":
+                        Console.Clear();
+                        currentPage = userInput;
+                        Menus.currentEmployeesMenuPage1(ref userInput);
+                        break;
+
+                    case "2":
+                        Console.Clear();
+                        currentPage = userInput;
+                        Menus.currentEmployeesMenuPage2(ref userInput);
+                        break;
+
+                    case "3":
+                        Console.Clear();
+                        currentPage = userInput;
+                        Menus.currentEmployeesMenuPage3(ref userInput);
+                        break;
+
+                    case "4":
+                        Console.Clear();
+                        currentPage = userInput;
+                        Menus.currentEmployeesMenuPage4(ref userInput);
+                        break;
+
+                    case "5":
+                        Console.Clear();
+                        currentPage = userInput;
+                        Menus.currentEmployeesMenuPage5(ref userInput);
+                        break;
+
+                    case "6":
+                        Console.Clear();
+                        currentPage = userInput;
+                        Menus.currentEmployeesMenuPage6(ref userInput);
+                        break;
+
+                    case "menu":
+                        break;
+
+                    default:
+                        Messages.DisplayErrorMessage("Incorrect Input! Please try again!");
+
+                        switch (currentPage)
+                        {
+                            case "1":
+                                Menus.currentEmployeesMenuPage1(ref userInput);
+                                break;
+
+                            case "2":
+                                Menus.currentEmployeesMenuPage2(ref userInput);
+                                break;
+
+                            case "3":
+                                Menus.currentEmployeesMenuPage3(ref userInput);
+                                break;
+
+                            case "4":
+                                Menus.currentEmployeesMenuPage4(ref userInput);
+                                break;
+
+                            case "5":
+                                Menus.currentEmployeesMenuPage5(ref userInput);
+                                break;
+
+                            case "6":
+                                Menus.currentEmployeesMenuPage6(ref userInput);
+                                break;
+                        }
+
+                        break;
+                }
+            }
+            while (userInput != "menu");
+        }
     }
 }

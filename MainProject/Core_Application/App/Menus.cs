@@ -1,4 +1,5 @@
-﻿using Cafe_Program.Misc;
+﻿using Cafe_Program.HR;
+using Cafe_Program.Misc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,7 @@ namespace Cafe_Program.App
                 Console.WriteLine("3. Chef");
                 Console.WriteLine("4. Bartender");
                 Console.WriteLine("5. Waitress");
-                Messages.DisplayBackMessage();
+                Messages.DisplayNavigationMessage("Type menu to go back to Main Menu");
                 Console.Write("Your input: ");
 
                 userInput = Console.ReadLine();
@@ -83,6 +84,66 @@ namespace Cafe_Program.App
             }
             while (userInput != "menu");
 
+        }
+
+        public static void currentEmployeesMenuPage1(ref string choice)
+        {
+            Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
+            Console.WriteLine("Displaying all current employees:");
+            Messages.DisplayPageMessage(1, 6);
+            Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
+            Console.Write("Your input: ");
+            choice = Console.ReadLine();
+        }
+
+        public static void currentEmployeesMenuPage2(ref string choice)
+        {
+            Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
+            Console.WriteLine("Displaying all current managers:");
+            Messages.DisplayPageMessage(2, 6);
+            Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
+            Console.Write("Your input: ");
+            choice = Console.ReadLine();
+        }
+
+        public static void currentEmployeesMenuPage3(ref string choice)
+        {
+            Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
+            Console.WriteLine("Displaying all current accountants:");
+            Messages.DisplayPageMessage(3, 6);
+            Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
+            Console.Write("Your input: ");
+            choice = Console.ReadLine();
+        }
+
+        public static void currentEmployeesMenuPage4(ref string choice)
+        {
+            Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
+            Console.WriteLine("Displaying all current chefs:");
+            Messages.DisplayPageMessage(4, 6);
+            Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
+            Console.Write("Your input: ");
+            choice = Console.ReadLine();
+        }
+
+        public static void currentEmployeesMenuPage5(ref string choice)
+        {
+            Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
+            Console.WriteLine("Displaying all current bartenders:");
+            Messages.DisplayPageMessage(5, 6);
+            Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
+            Console.Write("Your input: ");
+            choice = Console.ReadLine();
+        }
+
+        public static void currentEmployeesMenuPage6(ref string choice)
+        {
+            Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
+            Console.WriteLine("Displaying all current waitresses:");
+            Messages.DisplayPageMessage(6, 6);
+            Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
+            Console.Write("Your input: ");
+            choice = Console.ReadLine();
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Cafe_Program.Misc
     {
         public static string mainMenuTitle = "***********************************\n**         HR Management         **\n***********************************";
         public static string newEmployeeMenuTitle = "***********************************\n**       Add New Employee        **\n***********************************";
+        public static string currentEmployeesMenuTitle = "***********************************\n**       Current Employees       **\n***********************************";
 
         public static List<Manager> managers = new List<Manager>();
         public static List<Accountant> accoutants = new List<Accountant>();

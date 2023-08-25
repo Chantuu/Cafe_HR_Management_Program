@@ -24,6 +24,8 @@ do
 
         case "4":
             Console.Clear();
+            Processes.currentEmployeesMenuChoiceProcess();
+            Console.Clear();
             break;
 
         case "5":
