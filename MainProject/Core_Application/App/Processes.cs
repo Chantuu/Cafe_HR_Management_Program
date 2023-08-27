@@ -1,10 +1,5 @@
 ﻿using Cafe_Program.HR;
 using Cafe_Program.Misc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cafe_Program.App
 {
@@ -89,6 +84,179 @@ namespace Cafe_Program.App
             catch (Exception ex)
             {
                 Messages.DisplayErrorMessage(ex.Message);
+            }
+        }
+
+        public static void DisplayCommonEmployeeOpeartions(int startIndex=1)
+        {
+            string[] menuItems = new string[4] {"Perform Work", "Give Bonus", "Give Wage", "Display Full Information"};
+
+            foreach (string item in menuItems)
+            {
+                Console.WriteLine($"{startIndex}. {item}");
+                startIndex += 1;
+            }
+        }
+
+        public static void DisplayManagerOpeartions(int startIndex = 1)
+        {
+            string[] menuItems = new string[2] { "Attend Meeting", "Train Employees"};
+
+            foreach (string item in menuItems)
+            {
+                Console.WriteLine($"{startIndex}. {item}");
+                startIndex += 1;
+            }
+        }
+
+        public static void DisplayAccountantOpeartions(int startIndex = 1)
+        {
+            string[] menuItems = new string[2] { "Calculate Expenses", "Make Financial Audits" };
+
+            foreach (string item in menuItems)
+            {
+                Console.WriteLine($"{startIndex}. {item}");
+                startIndex += 1;
+            }
+        }
+
+        public static void DisplayChefOpeartions(int startIndex = 1)
+        {
+            string[] menuItems = new string[2] { "Make Meal", "Find New Tastes" };
+
+            foreach (string item in menuItems)
+            {
+                Console.WriteLine($"{startIndex}. {item}");
+                startIndex += 1;
+            }
+        }
+
+        public static void DisplayBartenderOpeartions(int index = 1)
+        {
+            Console.WriteLine($"{index}. Make Drink");
+        }
+
+        public static void DisplayWaitressOpeartions(int index = 1)
+        {
+            Console.WriteLine($"{index}. Clean Tables");
+        }
+
+        public static void ListIndexedEmployees(EmployeeSelection choice)
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            int startIndex = 1;
+
+            switch (choice)
+            {
+                case EmployeeSelection.manager:
+                    if (Utilites.managers.Count == 0)
+                    {
+                        Messages.DisplayListWarningMessage("There are not any manager employees");
+                    }
+                    else
+                    {
+                        foreach (Manager manager in Utilites.managers)
+                        {
+                            Console.WriteLine($"{startIndex}. {manager.ReturnShortInfo()}");
+                            startIndex += 1;
+                        }
+                    }
+                    break;
+
+                case EmployeeSelection.accountant:
+                    if (Utilites.accoutants.Count == 0)
+                    {
+                        Messages.DisplayListWarningMessage("There are not any accountant employees");
+                    }
+                    else
+                    {
+                        foreach (Accountant accountant in Utilites.accoutants)
+                        {
+                            Console.WriteLine($"{startIndex}. {accountant.ReturnShortInfo()}");
+                            startIndex += 1;
+                        }
+                    }
+                    break;
+
+                case EmployeeSelection.chef:
+                    if (Utilites.chefs.Count == 0)
+                    {
+                        Messages.DisplayListWarningMessage("There are not any chef employees");
+                    }
+                    else
+                    {
+                        foreach (Chef chef in Utilites.chefs)
+                        {
+                            Console.WriteLine($"{startIndex}. {chef.ReturnShortInfo()}");
+                            startIndex += 1;
+                        }
+                    }
+                    break;
+
+                case EmployeeSelection.bartender:
+                    if (Utilites.bartenders.Count == 0)
+                    {
+                        Messages.DisplayListWarningMessage("There are not any bartender employees");
+                    }
+                    else
+                    {
+                        foreach (Bartender bartender in Utilites.bartenders)
+                        {
+                            Console.WriteLine($"{startIndex}. {bartender.ReturnShortInfo()}");
+                            startIndex += 1;
+                        }
+                    }
+                    break;
+
+                case EmployeeSelection.waitress:
+                    if (Utilites.waitresses.Count == 0)
+                    {
+                        Messages.DisplayListWarningMessage("There are not any waitress employees");
+                    }
+                    else
+                    {
+                        foreach (Waitress waitress in Utilites.waitresses)
+                        {
+                            Console.WriteLine($"{startIndex}. {waitress.ReturnShortInfo()}");
+                            startIndex += 1;
+                        }
+                    }
+                    break;
+            }
+
+            Console.ResetColor();
+        }
+
+        public static void EmployeeCommonOperationsProcess(Employee employee, int choice)
+        {
+            switch (choice)
+            {
+                case 1:
+                    Console.Write("Please specify, how much hours has employee worked: ");
+                    string userInput = Console.ReadLine();
+                    
+                    try
+                    {
+                        employee.PerformWork(int.Parse(userInput));
+                        break;
+                    }
+                    catch (Exception e)
+                    {
+                        Messages.DisplayErrorMessage(e.Message);
+                    }
+                    break;
+
+                case 2:
+                    employee.GiveBonus();
+                    break;
+
+                case 3:
+                    employee.GiveWage();
+                    break;
+
+                case 4:
+                    employee.DisplayFullInfo();
+                    break;
             }
         }
 

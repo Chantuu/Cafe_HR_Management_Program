@@ -101,7 +101,7 @@ namespace Cafe_Program.HR
 
         public virtual string ReturnShortInfo()
         {
-            return $"{FirstName} {LastName} - {Rate}$ - {HireDate.ToString()}\n";
+            return $"{FirstName} {LastName} - {Rate}$ - {HireDate.ToString()}";
         }
 
         public virtual void DisplayFullInfo()
