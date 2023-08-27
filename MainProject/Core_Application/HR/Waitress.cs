@@ -13,7 +13,7 @@ namespace Cafe_Program.HR
 
         }
 
-        public void CleanTables(int tableCount)
+        public void CleanTables(int tableCount=20)
         {
             numberOfHoursWorked += (int)tableCount / 20;
             Console.WriteLine($"{FirstName} {LastName} has cleaned {tableCount} tables in {(int)tableCount / 20} hour(s)");
