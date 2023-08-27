@@ -99,6 +99,11 @@ namespace Cafe_Program.HR
             Console.WriteLine($"{FirstName} {LastName} - {Rate}$ - {HireDate.ToString()}\n");
         }
 
+        public virtual string ReturnShortInfo()
+        {
+            return $"{FirstName} {LastName} - {Rate}$ - {HireDate.ToString()}\n";
+        }
+
         public virtual void DisplayFullInfo()
         {
             Console.WriteLine($"Name: {FirstName} {LastName}\nEmail: {Email}\nRate: {Rate}\nBirth Date: {BirthDate}\nHire Date: {HireDate}\n");
