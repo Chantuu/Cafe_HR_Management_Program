@@ -22,7 +22,7 @@ namespace Cafe_Program.App
             {
                 double rate = Double.Parse(Console.ReadLine());
 
-                Console.Write("Please input employee birth date in 'MM/DD/YYYY' format: ");
+                Console.Write("Please input employee birth date in 'DD/MM/YYYY' format: ");
                 try
                 {
                     DateOnly birthDate = DateOnly.Parse(Console.ReadLine());
