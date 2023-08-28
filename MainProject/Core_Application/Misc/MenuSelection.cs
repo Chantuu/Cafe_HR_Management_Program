@@ -1,5 +1,5 @@
 ﻿
-namespace Core_Application.Misc
+namespace Cafe_Program.Misc
 {
     enum MenuSelection
     {
