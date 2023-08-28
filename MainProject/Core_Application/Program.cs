@@ -24,7 +24,7 @@ do
 
         case "2":
             Console.Clear();
-            Menus.employeeOperationsMenu();
+            Menus.EmployeeOperationsMenu();
             Console.Clear();
             break;
 

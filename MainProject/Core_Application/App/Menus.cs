@@ -23,7 +23,7 @@ namespace Cafe_Program.App
             return userInput;
         }
 
-        public static void employeeOperationsMenu()
+        public static void EmployeeOperationsMenu()
         {
             string userInput;
 
@@ -40,27 +40,27 @@ namespace Cafe_Program.App
                 {
                     case "1":
                         Console.Clear();
-                        selectedTypeEmployeeOperationsMenu(EmployeeSelection.manager);
+                        EmployeeOperationsMenuTypeSelection(EmployeeSelection.manager);
                         break;
 
                     case "2":
                         Console.Clear();
-                        selectedTypeEmployeeOperationsMenu(EmployeeSelection.accountant);
+                        EmployeeOperationsMenuTypeSelection(EmployeeSelection.accountant);
                         break;
 
                     case "3":
                         Console.Clear();
-                        selectedTypeEmployeeOperationsMenu(EmployeeSelection.chef);
+                        EmployeeOperationsMenuTypeSelection(EmployeeSelection.chef);
                         break;
 
                     case "4":
                         Console.Clear();
-                        selectedTypeEmployeeOperationsMenu(EmployeeSelection.bartender);
+                        EmployeeOperationsMenuTypeSelection(EmployeeSelection.bartender);
                         break;
 
                     case "5":
                         Console.Clear();
-                        selectedTypeEmployeeOperationsMenu(EmployeeSelection.waitress);
+                        EmployeeOperationsMenuTypeSelection(EmployeeSelection.waitress);
                         break;
 
                     case "menu":
@@ -74,7 +74,7 @@ namespace Cafe_Program.App
             while (userInput != "menu");  
         }
 
-        public static void selectedTypeEmployeeOperationsMenu(EmployeeSelection selection)
+        public static void EmployeeOperationsMenuTypeSelection(EmployeeSelection selection)
         {
             string userInput;
 
@@ -83,7 +83,7 @@ namespace Cafe_Program.App
                 Messages.DisplayTitle(Utilites.employeeOperationsMenuTitle);
                 Console.WriteLine("Please select desired employee: ");
 
-                Processes.ListEmployeeBasedChoiceMenuProcess(selection);
+                Processes.ListEmployeeTypeBasedIndexedProcess(selection);
 
                 Messages.DisplayNavigationMessage("Type back to go back");
                 userInput = Processes.ReturnUserInputProcess();
@@ -99,7 +99,7 @@ namespace Cafe_Program.App
                         {
                             int userChoice = int.Parse(userInput);
 
-                            Processes.ChooseEmployeeMenuProcess(selection, userChoice, MenuSelection.employeeOperationsMenu);
+                            Processes.ChooseEmployeeAndMenuProcess(selection, userChoice, MenuSelection.employeeOperationsMenu);
                         }
                         catch (Exception e)
                         {
@@ -111,7 +111,7 @@ namespace Cafe_Program.App
             while (userInput != "back");
         }
         
-        public static void SelectedEmployeeOperationsMenu(EmployeeSelection selection, int employeeIndex)
+        public static void EmployeeOperationsMenuSelectedEmployee(EmployeeSelection selection, int employeeIndex)
         {
             string userInput;
 
@@ -164,7 +164,7 @@ namespace Cafe_Program.App
                                     if (userChoice > 0 && userChoice <= 6)
                                     {
                                         Console.Clear();
-                                        EmployeeOperationResultMenu(selection, employeeIndex, userChoice);
+                                        EmployeeOperationsMenuResults(selection, employeeIndex, userChoice);
                                     }
                                     else
                                     {
@@ -176,7 +176,7 @@ namespace Cafe_Program.App
                                     if (userChoice > 0 && userChoice <= 6)
                                     {
                                         Console.Clear();
-                                        EmployeeOperationResultMenu(selection, employeeIndex, userChoice);
+                                        EmployeeOperationsMenuResults(selection, employeeIndex, userChoice);
                                     }
                                     else
                                     {
@@ -188,7 +188,7 @@ namespace Cafe_Program.App
                                     if (userChoice > 0 && userChoice <= 6)
                                     {
                                         Console.Clear();
-                                        EmployeeOperationResultMenu(selection, employeeIndex, userChoice);
+                                        EmployeeOperationsMenuResults(selection, employeeIndex, userChoice);
                                     }
                                     else
                                     {
@@ -200,7 +200,7 @@ namespace Cafe_Program.App
                                     if (userChoice > 0 && userChoice <= 5)
                                     {
                                         Console.Clear();
-                                        EmployeeOperationResultMenu(selection, employeeIndex, userChoice);
+                                        EmployeeOperationsMenuResults(selection, employeeIndex, userChoice);
                                     }
                                     else
                                     {
@@ -212,7 +212,7 @@ namespace Cafe_Program.App
                                     if (userChoice > 0 && userChoice <= 5)
                                     {
                                         Console.Clear();
-                                        EmployeeOperationResultMenu(selection, employeeIndex, userChoice);
+                                        EmployeeOperationsMenuResults(selection, employeeIndex, userChoice);
                                     }
                                     else
                                     {
@@ -231,7 +231,7 @@ namespace Cafe_Program.App
             while (userInput != "back");
         }
 
-        public static void EmployeeOperationResultMenu(EmployeeSelection selection, int employeeIndex, int operationChoice)
+        public static void EmployeeOperationsMenuResults(EmployeeSelection selection, int employeeIndex, int operationChoice)
         {
             Messages.DisplayTitle(Utilites.employeeOperationsMenuTitle);
 
@@ -242,7 +242,7 @@ namespace Cafe_Program.App
 
                     if (operationChoice >= 1 && operationChoice <= 4)
                     {
-                        Processes.EmployeeCommonOperationsProcess(manager, operationChoice);
+                        Processes.PerformCommonEmployeeOperationsProcess(manager, operationChoice);
                     }
                     else if (operationChoice == 5)
                     {
@@ -260,7 +260,7 @@ namespace Cafe_Program.App
 
                     if (operationChoice >= 1 && operationChoice <= 4)
                     {
-                        Processes.EmployeeCommonOperationsProcess(accountant, operationChoice);
+                        Processes.PerformCommonEmployeeOperationsProcess(accountant, operationChoice);
                     }
                     else if (operationChoice == 5)
                     {
@@ -278,7 +278,7 @@ namespace Cafe_Program.App
 
                     if (operationChoice >= 1 && operationChoice <= 4)
                     {
-                        Processes.EmployeeCommonOperationsProcess(chef, operationChoice);
+                        Processes.PerformCommonEmployeeOperationsProcess(chef, operationChoice);
                     }
                     else if (operationChoice == 5)
                     {
@@ -296,7 +296,7 @@ namespace Cafe_Program.App
 
                     if (operationChoice >= 1 && operationChoice <= 4)
                     {
-                        Processes.EmployeeCommonOperationsProcess(bartender, operationChoice);
+                        Processes.PerformCommonEmployeeOperationsProcess(bartender, operationChoice);
                     }
                     else if (operationChoice == 5)
                     {
@@ -311,7 +311,7 @@ namespace Cafe_Program.App
 
                     if (operationChoice >= 1 && operationChoice <= 4)
                     {
-                        Processes.EmployeeCommonOperationsProcess(waitress, operationChoice);
+                        Processes.PerformCommonEmployeeOperationsProcess(waitress, operationChoice);
                     }
                     else if (operationChoice == 5)
                     {
@@ -399,7 +399,7 @@ namespace Cafe_Program.App
         {
             Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current employees:");
-            Processes.ListAllEmployeesProcess(EmployeeSelection.all);
+            Processes.ListEmployeesNoIndexedProcess(EmployeeSelection.all);
             Messages.DisplayPageMessage(1, 6);
             Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
             choice = Processes.ReturnUserInputProcess();
@@ -409,7 +409,7 @@ namespace Cafe_Program.App
         {
             Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current managers:");
-            Processes.ListAllEmployeesProcess(EmployeeSelection.manager);
+            Processes.ListEmployeesNoIndexedProcess(EmployeeSelection.manager);
             Messages.DisplayPageMessage(2, 6);
             Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
             choice = Processes.ReturnUserInputProcess();
@@ -419,7 +419,7 @@ namespace Cafe_Program.App
         {
             Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current accountants:");
-            Processes.ListAllEmployeesProcess(EmployeeSelection.accountant);
+            Processes.ListEmployeesNoIndexedProcess(EmployeeSelection.accountant);
             Messages.DisplayPageMessage(3, 6);
             Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
             choice = Processes.ReturnUserInputProcess();
@@ -429,7 +429,7 @@ namespace Cafe_Program.App
         {
             Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current chefs:");
-            Processes.ListAllEmployeesProcess(EmployeeSelection.chef);
+            Processes.ListEmployeesNoIndexedProcess(EmployeeSelection.chef);
             Messages.DisplayPageMessage(4, 6);
             Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
             choice = Processes.ReturnUserInputProcess();
@@ -439,7 +439,7 @@ namespace Cafe_Program.App
         {
             Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current bartenders:");
-            Processes.ListAllEmployeesProcess(EmployeeSelection.bartender);
+            Processes.ListEmployeesNoIndexedProcess(EmployeeSelection.bartender);
             Messages.DisplayPageMessage(5, 6);
             Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
             choice = Processes.ReturnUserInputProcess();
@@ -449,7 +449,7 @@ namespace Cafe_Program.App
         {
             Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current waitresses:");
-            Processes.ListAllEmployeesProcess(EmployeeSelection.waitress);
+            Processes.ListEmployeesNoIndexedProcess(EmployeeSelection.waitress);
             Messages.DisplayPageMessage(6, 6);
             Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
             choice = Processes.ReturnUserInputProcess();
@@ -471,27 +471,27 @@ namespace Cafe_Program.App
                 {
                     case "1":
                         Console.Clear();
-                        RemoveSelectedTypeEmployeeMenu(EmployeeSelection.manager);
+                        RemoveEmployeeMenuTypeSelection(EmployeeSelection.manager);
                         break;
 
                     case "2":
                         Console.Clear();
-                        RemoveSelectedTypeEmployeeMenu(EmployeeSelection.accountant);
+                        RemoveEmployeeMenuTypeSelection(EmployeeSelection.accountant);
                         break;
 
                     case "3":
                         Console.Clear();
-                        RemoveSelectedTypeEmployeeMenu(EmployeeSelection.chef);
+                        RemoveEmployeeMenuTypeSelection(EmployeeSelection.chef);
                         break;
 
                     case "4":
                         Console.Clear();
-                        RemoveSelectedTypeEmployeeMenu(EmployeeSelection.bartender);
+                        RemoveEmployeeMenuTypeSelection(EmployeeSelection.bartender);
                         break;
 
                     case "5":
                         Console.Clear();
-                        RemoveSelectedTypeEmployeeMenu(EmployeeSelection.waitress);
+                        RemoveEmployeeMenuTypeSelection(EmployeeSelection.waitress);
                         break;
 
                     case "menu":
@@ -505,7 +505,7 @@ namespace Cafe_Program.App
             while (userInput != "menu");
         }
 
-        public static void RemoveSelectedTypeEmployeeMenu(EmployeeSelection selection)
+        public static void RemoveEmployeeMenuTypeSelection(EmployeeSelection selection)
         {
             string userInput;
 
@@ -514,7 +514,7 @@ namespace Cafe_Program.App
                 Messages.DisplayTitle(Utilites.removeEmployeesMenuTitle);
                 Console.WriteLine("Please select desired employee to remove: ");
 
-                Processes.ListEmployeeBasedChoiceMenuProcess(selection);
+                Processes.ListEmployeeTypeBasedIndexedProcess(selection);
 
                 Messages.DisplayNavigationMessage("Type back to go back");
                 userInput = Processes.ReturnUserInputProcess();
@@ -529,7 +529,7 @@ namespace Cafe_Program.App
                         try
                         {
                             int userChoice = int.Parse(userInput);
-                            Processes.ChooseEmployeeMenuProcess(selection, userChoice, MenuSelection.removeEmployeeMenu);
+                            Processes.ChooseEmployeeAndMenuProcess(selection, userChoice, MenuSelection.removeEmployeeMenu);
                         }
                         catch (Exception e)
                         {
@@ -541,7 +541,7 @@ namespace Cafe_Program.App
             while (userInput != "back");
         }
 
-        public static void ConfirmSelectedUserDeletionMenu(EmployeeSelection selection, int employeeIndex)
+        public static void RemoveEmployeeMenuConfirming(EmployeeSelection selection, int employeeIndex)
         {
             string userInput;
 

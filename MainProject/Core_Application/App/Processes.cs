@@ -141,7 +141,7 @@ namespace Cafe_Program.App
             Console.WriteLine($"{index}. Clean Tables");
         }
 
-        public static void ListIndexedEmployeesProcess(EmployeeSelection choice)
+        public static void ListEmployeesIndexedProcess(EmployeeSelection choice)
         {
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             int startIndex = 1;
@@ -227,7 +227,7 @@ namespace Cafe_Program.App
             Console.ResetColor();
         }
 
-        public static void EmployeeCommonOperationsProcess(Employee employee, int choice)
+        public static void PerformCommonEmployeeOperationsProcess(Employee employee, int choice)
         {
             switch (choice)
             {
@@ -346,7 +346,7 @@ namespace Cafe_Program.App
             while (userInput != "menu");
         }
 
-        public static void ListAllEmployeesProcess(EmployeeSelection filter)
+        public static void ListEmployeesNoIndexedProcess(EmployeeSelection filter)
         {
             Console.ForegroundColor = ConsoleColor.DarkCyan;
 
@@ -477,34 +477,34 @@ namespace Cafe_Program.App
             Console.WriteLine("5. Waitress");
         }
 
-        public static void ListEmployeeBasedChoiceMenuProcess(EmployeeSelection selection) 
+        public static void ListEmployeeTypeBasedIndexedProcess(EmployeeSelection selection) 
         {
             switch (selection)
             {
                 case EmployeeSelection.manager:
-                    Processes.ListIndexedEmployeesProcess(EmployeeSelection.manager);
+                    Processes.ListEmployeesIndexedProcess(EmployeeSelection.manager);
                     break;
 
                 case EmployeeSelection.accountant:
-                    Processes.ListIndexedEmployeesProcess(EmployeeSelection.accountant);
+                    Processes.ListEmployeesIndexedProcess(EmployeeSelection.accountant);
                     break;
 
                 case EmployeeSelection.chef:
-                    Processes.ListIndexedEmployeesProcess(EmployeeSelection.chef);
+                    Processes.ListEmployeesIndexedProcess(EmployeeSelection.chef);
                     break;
 
                 case EmployeeSelection.bartender:
-                    Processes.ListIndexedEmployeesProcess(EmployeeSelection.bartender);
+                    Processes.ListEmployeesIndexedProcess(EmployeeSelection.bartender);
                     break;
 
                 case EmployeeSelection.waitress:
-                    Processes.ListIndexedEmployeesProcess(EmployeeSelection.waitress);
+                    Processes.ListEmployeesIndexedProcess(EmployeeSelection.waitress);
                     break;
             }
         }
 
 
-        public static void ChooseEmployeeMenuProcess(EmployeeSelection selection, int userChoice, MenuSelection destination)
+        public static void ChooseEmployeeAndMenuProcess(EmployeeSelection selection, int userChoice, MenuSelection destination)
         {
             switch (selection)
             {
@@ -514,11 +514,11 @@ namespace Cafe_Program.App
                         Console.Clear();
                         if (destination == MenuSelection.employeeOperationsMenu)
                         {
-                            Menus.SelectedEmployeeOperationsMenu(selection, userChoice - 1);
+                            Menus.EmployeeOperationsMenuSelectedEmployee(selection, userChoice - 1);
                         }
                         else if (destination == MenuSelection.removeEmployeeMenu)
                         {
-                            Menus.ConfirmSelectedUserDeletionMenu(selection, userChoice - 1);
+                            Menus.RemoveEmployeeMenuConfirming(selection, userChoice - 1);
                         }
                         
                     }
@@ -534,11 +534,11 @@ namespace Cafe_Program.App
                         Console.Clear();
                         if (destination == MenuSelection.employeeOperationsMenu)
                         {
-                            Menus.SelectedEmployeeOperationsMenu(selection, userChoice - 1);
+                            Menus.EmployeeOperationsMenuSelectedEmployee(selection, userChoice - 1);
                         }
                         else if (destination == MenuSelection.removeEmployeeMenu)
                         {
-                            Menus.ConfirmSelectedUserDeletionMenu(selection, userChoice - 1);
+                            Menus.RemoveEmployeeMenuConfirming(selection, userChoice - 1);
                         }
                     }
                     else
@@ -553,11 +553,11 @@ namespace Cafe_Program.App
                         Console.Clear();
                         if (destination == MenuSelection.employeeOperationsMenu)
                         {
-                            Menus.SelectedEmployeeOperationsMenu(selection, userChoice - 1);
+                            Menus.EmployeeOperationsMenuSelectedEmployee(selection, userChoice - 1);
                         }
                         else if (destination == MenuSelection.removeEmployeeMenu)
                         {
-                            Menus.ConfirmSelectedUserDeletionMenu(selection, userChoice - 1);
+                            Menus.RemoveEmployeeMenuConfirming(selection, userChoice - 1);
                         }
                     }
                     else
@@ -572,11 +572,11 @@ namespace Cafe_Program.App
                         Console.Clear();
                         if (destination == MenuSelection.employeeOperationsMenu)
                         {
-                            Menus.SelectedEmployeeOperationsMenu(selection, userChoice - 1);
+                            Menus.EmployeeOperationsMenuSelectedEmployee(selection, userChoice - 1);
                         }
                         else if (destination == MenuSelection.removeEmployeeMenu)
                         {
-                            Menus.ConfirmSelectedUserDeletionMenu(selection, userChoice - 1);
+                            Menus.RemoveEmployeeMenuConfirming(selection, userChoice - 1);
                         }
                     }
                     else
@@ -591,11 +591,11 @@ namespace Cafe_Program.App
                         Console.Clear();
                         if (destination == MenuSelection.employeeOperationsMenu)
                         {
-                            Menus.SelectedEmployeeOperationsMenu(selection, userChoice - 1);
+                            Menus.EmployeeOperationsMenuSelectedEmployee(selection, userChoice - 1);
                         }
                         else if (destination == MenuSelection.removeEmployeeMenu)
                         {
-                            Menus.ConfirmSelectedUserDeletionMenu(selection, userChoice - 1);
+                            Menus.RemoveEmployeeMenuConfirming(selection, userChoice - 1);
                         }
                     }
                     else
