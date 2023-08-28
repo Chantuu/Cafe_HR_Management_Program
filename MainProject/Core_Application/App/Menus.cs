@@ -83,28 +83,7 @@ namespace Cafe_Program.App
                 Messages.DisplayTitle(Utilites.employeeOperationsMenuTitle);
                 Console.WriteLine("Please select desired employee: ");
 
-                switch (selection)
-                {
-                    case EmployeeSelection.manager:
-                        Processes.ListIndexedEmployeesProcess(EmployeeSelection.manager);
-                        break;
-
-                    case EmployeeSelection.accountant:
-                        Processes.ListIndexedEmployeesProcess(EmployeeSelection.accountant);
-                        break;
-
-                    case EmployeeSelection.chef:
-                        Processes.ListIndexedEmployeesProcess(EmployeeSelection.chef);
-                        break;
-
-                    case EmployeeSelection.bartender:
-                        Processes.ListIndexedEmployeesProcess(EmployeeSelection.bartender);
-                        break;
-
-                    case EmployeeSelection.waitress:
-                        Processes.ListIndexedEmployeesProcess(EmployeeSelection.waitress);
-                        break;
-                }
+                Processes.ListEmployeeBasedChoiceMenuProcess(selection);
 
                 Messages.DisplayNavigationMessage("Type back to go back");
                 userInput = Processes.ReturnUserInputProcess();
@@ -120,68 +99,7 @@ namespace Cafe_Program.App
                         {
                             int userChoice = int.Parse(userInput);
 
-                            switch (selection)
-                            {
-                                case EmployeeSelection.manager:
-                                    if (userChoice > 0 && userChoice <= Utilites.managers.Count)
-                                    {
-                                        Console.Clear();
-                                        selectedEmployeeOperationsMenu(selection, userChoice-1);
-                                    }
-                                    else
-                                    {
-                                        Messages.DisplayErrorMessage("Incorrect Selection! Please try again!");
-                                    }
-                                    break;
-
-                                case EmployeeSelection.accountant:
-                                    if (userChoice > 0 && userChoice <= Utilites.accoutants.Count)
-                                    {
-                                        Console.Clear();
-                                        selectedEmployeeOperationsMenu(selection, userChoice-1);
-                                    }
-                                    else
-                                    {
-                                        Messages.DisplayErrorMessage("Incorrect Selection! Please try again!");
-                                    }
-                                    break;
-
-                                case EmployeeSelection.chef:
-                                    if (userChoice > 0 && userChoice <= Utilites.chefs.Count)
-                                    {
-                                        Console.Clear();
-                                        selectedEmployeeOperationsMenu(selection, userChoice-1);
-                                    }
-                                    else
-                                    {
-                                        Messages.DisplayErrorMessage("Incorrect Selection! Please try again!");
-                                    }
-                                    break;
-
-                                case EmployeeSelection.bartender:
-                                    if (userChoice > 0 && userChoice <= Utilites.bartenders.Count)
-                                    {
-                                        Console.Clear();
-                                        selectedEmployeeOperationsMenu(selection, userChoice-1);
-                                    }
-                                    else
-                                    {
-                                        Messages.DisplayErrorMessage("Incorrect Selection! Please try again!");
-                                    }
-                                    break;
-
-                                case EmployeeSelection.waitress:
-                                    if (userChoice > 0 && userChoice <= Utilites.waitresses.Count)
-                                    {
-                                        Console.Clear();
-                                        selectedEmployeeOperationsMenu(selection, userChoice-1);
-                                    }
-                                    else
-                                    {
-                                        Messages.DisplayErrorMessage("Incorrect Selection! Please try again!");
-                                    }
-                                    break;
-                            }
+                            Processes.ChooseEmployeeMenuProcess(selection, userChoice, MenuSelection.employeeOperationsMenu);
                         }
                         catch (Exception e)
                         {
@@ -193,7 +111,7 @@ namespace Cafe_Program.App
             while (userInput != "back");
         }
         
-        public static void selectedEmployeeOperationsMenu(EmployeeSelection selection, int employeeIndex)
+        public static void SelectedEmployeeOperationsMenu(EmployeeSelection selection, int employeeIndex)
         {
             string userInput;
 
@@ -310,7 +228,7 @@ namespace Cafe_Program.App
                         break;
                 }
             }
-            while (userInput != "back");           
+            while (userInput != "back");
         }
 
         public static void EmployeeOperationResultMenu(EmployeeSelection selection, int employeeIndex, int operationChoice)
@@ -535,6 +453,145 @@ namespace Cafe_Program.App
             Messages.DisplayPageMessage(6, 6);
             Messages.DisplayNavigationMessage("Type 1-6 to move between pages\nType menu to go back to Main Menu");
             choice = Processes.ReturnUserInputProcess();
+        }
+
+        public static void RemoveEmployeeMenu()
+        {
+            string userInput;
+
+            do
+            {
+                Messages.DisplayTitle(Utilites.removeEmployeesMenuTitle);
+                Console.WriteLine("Please select which type of employee do you want to remove:");
+                Processes.DisplayAllEmployeeTypesProcess();
+                Messages.DisplayNavigationMessage("Type menu to go back to Main Menu");
+                userInput = Processes.ReturnUserInputProcess();
+
+                switch (userInput)
+                {
+                    case "1":
+                        Console.Clear();
+                        RemoveSelectedTypeEmployeeMenu(EmployeeSelection.manager);
+                        break;
+
+                    case "2":
+                        Console.Clear();
+                        RemoveSelectedTypeEmployeeMenu(EmployeeSelection.accountant);
+                        break;
+
+                    case "3":
+                        Console.Clear();
+                        RemoveSelectedTypeEmployeeMenu(EmployeeSelection.chef);
+                        break;
+
+                    case "4":
+                        Console.Clear();
+                        RemoveSelectedTypeEmployeeMenu(EmployeeSelection.bartender);
+                        break;
+
+                    case "5":
+                        Console.Clear();
+                        RemoveSelectedTypeEmployeeMenu(EmployeeSelection.waitress);
+                        break;
+
+                    case "menu":
+                        break;
+
+                    default:
+                        Messages.DisplayErrorMessage("Incorrect Input! Please try again!");
+                        break;
+                }
+            }
+            while (userInput != "menu");
+        }
+
+        public static void RemoveSelectedTypeEmployeeMenu(EmployeeSelection selection)
+        {
+            string userInput;
+
+            do
+            {
+                Messages.DisplayTitle(Utilites.removeEmployeesMenuTitle);
+                Console.WriteLine("Please select desired employee to remove: ");
+
+                Processes.ListEmployeeBasedChoiceMenuProcess(selection);
+
+                Messages.DisplayNavigationMessage("Type back to go back");
+                userInput = Processes.ReturnUserInputProcess();
+
+                switch (userInput)
+                {
+                    case "back":
+                        Console.Clear();
+                        break;
+
+                    default:
+                        try
+                        {
+                            int userChoice = int.Parse(userInput);
+                            Processes.ChooseEmployeeMenuProcess(selection, userChoice, MenuSelection.removeEmployeeMenu);
+                        }
+                        catch (Exception e)
+                        {
+                            Messages.DisplayErrorMessage(e.Message);
+                        }
+                        break;
+                }
+            }
+            while (userInput != "back");
+        }
+
+        public static void ConfirmSelectedUserDeletionMenu(EmployeeSelection selection, int employeeIndex)
+        {
+            string userInput;
+
+            do
+            {
+                Messages.DisplayTitle(Utilites.removeEmployeesMenuTitle);
+                Console.WriteLine("This action can not be undone!\nAre you sure, You want to remove this employee?");
+
+                Messages.DisplayNavigationMessage("Type yes to continue, no to cancel");
+                userInput = Processes.ReturnUserInputProcess();
+
+                if (userInput == "yes")
+                {
+                    switch (selection)
+                    {
+                        case EmployeeSelection.manager:
+                            Utilites.managers.RemoveAt(employeeIndex);
+                            break;
+
+                        case EmployeeSelection.accountant:
+                            Utilites.accoutants.RemoveAt(employeeIndex);
+                            break;
+
+                        case EmployeeSelection.chef:
+                            Utilites.chefs.RemoveAt(employeeIndex);
+                            break;
+
+                        case EmployeeSelection.bartender:
+                            Utilites.bartenders.RemoveAt(employeeIndex);
+                            break;
+
+                        case EmployeeSelection.waitress:
+                            Utilites.waitresses.RemoveAt(employeeIndex);
+                            break;
+                    }
+
+                    Messages.DisplaySuccessMessage("Successfully removed employee");
+                    break;
+                }
+                else if (userInput == "no")
+                {
+                    Messages.DisplayInformationMessage("Operation has been cancelled by user");
+                }
+                else
+                {
+                    Messages.DisplayErrorMessage("Incorrect Input! Please try again!");
+                }
+                
+            }
+            while (userInput != "no");
         }
     }
 }

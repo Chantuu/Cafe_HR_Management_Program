@@ -40,6 +40,8 @@ do
 
         case "5":
             Console.Clear();
+            Menus.RemoveEmployeeMenu();
+            Console.Clear();
             break;
 
         case "6":

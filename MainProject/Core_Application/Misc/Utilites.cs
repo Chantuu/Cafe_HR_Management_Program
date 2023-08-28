@@ -13,6 +13,7 @@ namespace Cafe_Program.Misc
         public const string newEmployeeMenuTitle = "***********************************\n**       Add New Employee        **\n***********************************";
         public const string employeeOperationsMenuTitle = "***********************************\n**      Employee Opeartions      **\n***********************************";
         public const string currentEmployeesMenuTitle = "***********************************\n**       Current Employees       **\n***********************************";
+        public const string removeEmployeesMenuTitle = "***********************************\n**        Remove Employees       **\n***********************************";
 
         public static List<Manager> managers = new List<Manager>();
         public static List<Accountant> accoutants = new List<Accountant>();

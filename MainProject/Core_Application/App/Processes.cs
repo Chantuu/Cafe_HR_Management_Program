@@ -476,5 +476,134 @@ namespace Cafe_Program.App
             Console.WriteLine("4. Bartender");
             Console.WriteLine("5. Waitress");
         }
+
+        public static void ListEmployeeBasedChoiceMenuProcess(EmployeeSelection selection) 
+        {
+            switch (selection)
+            {
+                case EmployeeSelection.manager:
+                    Processes.ListIndexedEmployeesProcess(EmployeeSelection.manager);
+                    break;
+
+                case EmployeeSelection.accountant:
+                    Processes.ListIndexedEmployeesProcess(EmployeeSelection.accountant);
+                    break;
+
+                case EmployeeSelection.chef:
+                    Processes.ListIndexedEmployeesProcess(EmployeeSelection.chef);
+                    break;
+
+                case EmployeeSelection.bartender:
+                    Processes.ListIndexedEmployeesProcess(EmployeeSelection.bartender);
+                    break;
+
+                case EmployeeSelection.waitress:
+                    Processes.ListIndexedEmployeesProcess(EmployeeSelection.waitress);
+                    break;
+            }
+        }
+
+
+        public static void ChooseEmployeeMenuProcess(EmployeeSelection selection, int userChoice, MenuSelection destination)
+        {
+            switch (selection)
+            {
+                case EmployeeSelection.manager:
+                    if (userChoice > 0 && userChoice <= Utilites.managers.Count)
+                    {
+                        Console.Clear();
+                        if (destination == MenuSelection.employeeOperationsMenu)
+                        {
+                            Menus.SelectedEmployeeOperationsMenu(selection, userChoice - 1);
+                        }
+                        else if (destination == MenuSelection.removeEmployeeMenu)
+                        {
+                            Menus.ConfirmSelectedUserDeletionMenu(selection, userChoice - 1);
+                        }
+                        
+                    }
+                    else
+                    {
+                        Messages.DisplayErrorMessage("Incorrect Selection! Please try again!");
+                    }
+                    break;
+
+                case EmployeeSelection.accountant:
+                    if (userChoice > 0 && userChoice <= Utilites.accoutants.Count)
+                    {
+                        Console.Clear();
+                        if (destination == MenuSelection.employeeOperationsMenu)
+                        {
+                            Menus.SelectedEmployeeOperationsMenu(selection, userChoice - 1);
+                        }
+                        else if (destination == MenuSelection.removeEmployeeMenu)
+                        {
+                            Menus.ConfirmSelectedUserDeletionMenu(selection, userChoice - 1);
+                        }
+                    }
+                    else
+                    {
+                        Messages.DisplayErrorMessage("Incorrect Selection! Please try again!");
+                    }
+                    break;
+
+                case EmployeeSelection.chef:
+                    if (userChoice > 0 && userChoice <= Utilites.chefs.Count)
+                    {
+                        Console.Clear();
+                        if (destination == MenuSelection.employeeOperationsMenu)
+                        {
+                            Menus.SelectedEmployeeOperationsMenu(selection, userChoice - 1);
+                        }
+                        else if (destination == MenuSelection.removeEmployeeMenu)
+                        {
+                            Menus.ConfirmSelectedUserDeletionMenu(selection, userChoice - 1);
+                        }
+                    }
+                    else
+                    {
+                        Messages.DisplayErrorMessage("Incorrect Selection! Please try again!");
+                    }
+                    break;
+
+                case EmployeeSelection.bartender:
+                    if (userChoice > 0 && userChoice <= Utilites.bartenders.Count)
+                    {
+                        Console.Clear();
+                        if (destination == MenuSelection.employeeOperationsMenu)
+                        {
+                            Menus.SelectedEmployeeOperationsMenu(selection, userChoice - 1);
+                        }
+                        else if (destination == MenuSelection.removeEmployeeMenu)
+                        {
+                            Menus.ConfirmSelectedUserDeletionMenu(selection, userChoice - 1);
+                        }
+                    }
+                    else
+                    {
+                        Messages.DisplayErrorMessage("Incorrect Selection! Please try again!");
+                    }
+                    break;
+
+                case EmployeeSelection.waitress:
+                    if (userChoice > 0 && userChoice <= Utilites.waitresses.Count)
+                    {
+                        Console.Clear();
+                        if (destination == MenuSelection.employeeOperationsMenu)
+                        {
+                            Menus.SelectedEmployeeOperationsMenu(selection, userChoice - 1);
+                        }
+                        else if (destination == MenuSelection.removeEmployeeMenu)
+                        {
+                            Menus.ConfirmSelectedUserDeletionMenu(selection, userChoice - 1);
+                        }
+                    }
+                    else
+                    {
+                        Messages.DisplayErrorMessage("Incorrect Selection! Please try again!");
+                    }
+                    break;
+            }
+        }
     }
 }

@@ -63,5 +63,14 @@ namespace Cafe_Program.App
             Console.WriteLine(text);
             Console.ResetColor();
         }
+
+        public static void DisplayInformationMessage(string message)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine(message);
+            Console.WriteLine();
+            Console.ResetColor();
+        }
     }
 }
