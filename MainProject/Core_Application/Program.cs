@@ -34,7 +34,7 @@ do
 
         case "4":
             Console.Clear();
-            Processes.currentEmployeesMenuChoiceProcess();
+            Processes.CurrentEmployeesMenuChoiceProcess();
             Console.Clear();
             break;
 

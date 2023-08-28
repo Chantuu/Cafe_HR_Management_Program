@@ -87,7 +87,7 @@ namespace Cafe_Program.App
             }
         }
 
-        public static void DisplayCommonEmployeeOpeartions(int startIndex=1)
+        public static void DisplayCommonEmployeeOpeartionsProcess(int startIndex=1)
         {
             string[] menuItems = new string[4] {"Perform Work", "Give Bonus", "Give Wage", "Display Full Information"};
 
@@ -98,7 +98,7 @@ namespace Cafe_Program.App
             }
         }
 
-        public static void DisplayManagerOpeartions(int startIndex = 1)
+        public static void DisplayManagerOpeartionsProcess(int startIndex = 1)
         {
             string[] menuItems = new string[2] { "Attend Meeting", "Train Employees"};
 
@@ -109,7 +109,7 @@ namespace Cafe_Program.App
             }
         }
 
-        public static void DisplayAccountantOpeartions(int startIndex = 1)
+        public static void DisplayAccountantOpeartionsProcess(int startIndex = 1)
         {
             string[] menuItems = new string[2] { "Calculate Expenses", "Make Financial Audits" };
 
@@ -120,7 +120,7 @@ namespace Cafe_Program.App
             }
         }
 
-        public static void DisplayChefOpeartions(int startIndex = 1)
+        public static void DisplayChefOpeartionsProcess(int startIndex = 1)
         {
             string[] menuItems = new string[2] { "Make Meal", "Find New Tastes" };
 
@@ -131,17 +131,17 @@ namespace Cafe_Program.App
             }
         }
 
-        public static void DisplayBartenderOpeartions(int index = 1)
+        public static void DisplayBartenderOpeartionsProcess(int index = 1)
         {
             Console.WriteLine($"{index}. Make Drink");
         }
 
-        public static void DisplayWaitressOpeartions(int index = 1)
+        public static void DisplayWaitressOpeartionsProcess(int index = 1)
         {
             Console.WriteLine($"{index}. Clean Tables");
         }
 
-        public static void ListIndexedEmployees(EmployeeSelection choice)
+        public static void ListIndexedEmployeesProcess(EmployeeSelection choice)
         {
             Console.ForegroundColor = ConsoleColor.DarkCyan;
             int startIndex = 1;
@@ -260,12 +260,12 @@ namespace Cafe_Program.App
             }
         }
 
-        public static void currentEmployeesMenuChoiceProcess()
+        public static void CurrentEmployeesMenuChoiceProcess()
         {
             string userInput = "";
             string currentPage = "1";
 
-            Menus.currentEmployeesMenuPage1(ref userInput);
+            Menus.CurrentEmployeesMenuPage1(ref userInput);
 
             do
             {
@@ -274,37 +274,37 @@ namespace Cafe_Program.App
                     case "1":
                         Console.Clear();
                         currentPage = userInput;
-                        Menus.currentEmployeesMenuPage1(ref userInput);
+                        Menus.CurrentEmployeesMenuPage1(ref userInput);
                         break;
 
                     case "2":
                         Console.Clear();
                         currentPage = userInput;
-                        Menus.currentEmployeesMenuPage2(ref userInput);
+                        Menus.CurrentEmployeesMenuPage2(ref userInput);
                         break;
 
                     case "3":
                         Console.Clear();
                         currentPage = userInput;
-                        Menus.currentEmployeesMenuPage3(ref userInput);
+                        Menus.CurrentEmployeesMenuPage3(ref userInput);
                         break;
 
                     case "4":
                         Console.Clear();
                         currentPage = userInput;
-                        Menus.currentEmployeesMenuPage4(ref userInput);
+                        Menus.CurrentEmployeesMenuPage4(ref userInput);
                         break;
 
                     case "5":
                         Console.Clear();
                         currentPage = userInput;
-                        Menus.currentEmployeesMenuPage5(ref userInput);
+                        Menus.CurrentEmployeesMenuPage5(ref userInput);
                         break;
 
                     case "6":
                         Console.Clear();
                         currentPage = userInput;
-                        Menus.currentEmployeesMenuPage6(ref userInput);
+                        Menus.CurrentEmployeesMenuPage6(ref userInput);
                         break;
 
                     case "menu":
@@ -316,27 +316,27 @@ namespace Cafe_Program.App
                         switch (currentPage)
                         {
                             case "1":
-                                Menus.currentEmployeesMenuPage1(ref userInput);
+                                Menus.CurrentEmployeesMenuPage1(ref userInput);
                                 break;
 
                             case "2":
-                                Menus.currentEmployeesMenuPage2(ref userInput);
+                                Menus.CurrentEmployeesMenuPage2(ref userInput);
                                 break;
 
                             case "3":
-                                Menus.currentEmployeesMenuPage3(ref userInput);
+                                Menus.CurrentEmployeesMenuPage3(ref userInput);
                                 break;
 
                             case "4":
-                                Menus.currentEmployeesMenuPage4(ref userInput);
+                                Menus.CurrentEmployeesMenuPage4(ref userInput);
                                 break;
 
                             case "5":
-                                Menus.currentEmployeesMenuPage5(ref userInput);
+                                Menus.CurrentEmployeesMenuPage5(ref userInput);
                                 break;
 
                             case "6":
-                                Menus.currentEmployeesMenuPage6(ref userInput);
+                                Menus.CurrentEmployeesMenuPage6(ref userInput);
                                 break;
                         }
 
@@ -346,7 +346,7 @@ namespace Cafe_Program.App
             while (userInput != "menu");
         }
 
-        public static void listAllEmployeesProcess(EmployeeSelection filter)
+        public static void ListAllEmployeesProcess(EmployeeSelection filter)
         {
             Console.ForegroundColor = ConsoleColor.DarkCyan;
 
@@ -458,6 +458,14 @@ namespace Cafe_Program.App
             }
 
             Console.ResetColor();
+        }
+
+        public static string ReturnUserInputProcess()
+        {
+            Console.Write("Your input: ");
+
+            string userInput = Console.ReadLine();
+            return userInput;
         }
     }
 }
