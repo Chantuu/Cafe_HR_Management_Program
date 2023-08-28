@@ -31,11 +31,7 @@ namespace Cafe_Program.App
             {
                 Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
                 Console.WriteLine("Choose which type of employee do you want to select:");
-                Console.WriteLine("1. Managers");
-                Console.WriteLine("2. Accountants");
-                Console.WriteLine("3. Chefs");
-                Console.WriteLine("4. Bartenders");
-                Console.WriteLine("5. Waitresses");
+                Processes.DisplayAllEmployeeTypesProcess();
                 Messages.DisplayNavigationMessage("Type menu to go back to Main Menu");
                 
                 userInput = Processes.ReturnUserInputProcess();
@@ -437,11 +433,7 @@ namespace Cafe_Program.App
             {
                 Messages.DisplayTitle(Utilites.newEmployeeMenuTitle);
                 Console.WriteLine("Please select role for new Employee:");
-                Console.WriteLine("1. Manager");
-                Console.WriteLine("2. Accountant");
-                Console.WriteLine("3. Chef");
-                Console.WriteLine("4. Bartender");
-                Console.WriteLine("5. Waitress");
+                Processes.DisplayAllEmployeeTypesProcess();
                 Messages.DisplayNavigationMessage("Type menu to go back to Main Menu");
 
                 userInput = Processes.ReturnUserInputProcess();

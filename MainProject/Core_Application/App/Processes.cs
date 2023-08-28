@@ -467,5 +467,14 @@ namespace Cafe_Program.App
             string userInput = Console.ReadLine();
             return userInput;
         }
+
+        public static void DisplayAllEmployeeTypesProcess()
+        {
+            Console.WriteLine("1. Manager");
+            Console.WriteLine("2. Accountant");
+            Console.WriteLine("3. Chef");
+            Console.WriteLine("4. Bartender");
+            Console.WriteLine("5. Waitress");
+        }
     }
 }
