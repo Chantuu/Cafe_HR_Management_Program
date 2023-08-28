@@ -96,7 +96,7 @@ namespace Cafe_Program.HR
 
         public virtual void DisplayShortInfo()
         {
-            Console.WriteLine($"{FirstName} {LastName} - {Rate}$ - {HireDate.ToString()}\n");
+            Console.WriteLine($"{FirstName} {LastName} - {Rate}$ - {HireDate.ToString()}");
         }
 
         public virtual string ReturnShortInfo()
