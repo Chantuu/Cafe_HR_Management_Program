@@ -593,5 +593,35 @@ namespace Cafe_Program.App
             }
             while (userInput != "no");
         }
+
+        public static void AboutMenu()
+        {
+            string userInput;
+
+            do
+            {
+                Messages.DisplayTitle(Utilites.aboutMenuTitle);
+                Console.WriteLine("This project was created for demonstrating");
+                Console.WriteLine("my skills in C# and testing myself in");
+                Console.WriteLine("using all my skills and knownledge.");
+                Console.WriteLine();
+                Console.WriteLine("I hope you have liked my project and");
+                Console.WriteLine("don't forget to check out others on");
+                Console.WriteLine("my GitHub profile!");
+                Messages.DisplayNavigationMessage("Type menu to go back to Main Menu");
+                userInput= Processes.ReturnUserInputProcess();
+
+                switch (userInput)
+                {
+                    case "menu":
+                        break;
+
+                    default:
+                        Messages.DisplayErrorMessage("Incorrect input! Please try again!");
+                        break;
+                }
+            }
+            while (userInput != "menu");
+        }
     }
 }

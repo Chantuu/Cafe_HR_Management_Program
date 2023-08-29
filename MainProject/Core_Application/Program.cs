@@ -50,6 +50,8 @@ do
 
         case "7":
             Console.Clear();
+            Menus.AboutMenu();
+            Console.Clear();
             break;
 
         case "8":
