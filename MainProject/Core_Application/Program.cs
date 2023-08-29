@@ -46,6 +46,22 @@ do
 
         case "6":
             Console.Clear();
+            StatusEnum result = Menus.SaveFileMenu();
+            Console.Clear();
+
+            if (result == StatusEnum.success)
+            {
+                Messages.DisplaySuccessMessage("All employees have been saved to a file!");
+            }
+            else if (result == StatusEnum.cancel)
+            {
+                Messages.DisplayInformationMessage("Operation has been cancelled by user!");
+            }
+            else if (result == StatusEnum.error)
+            {
+                Messages.DisplayErrorMessage("Unable to save file! Please, try again!");
+            }
+
             break;
 
         case "7":

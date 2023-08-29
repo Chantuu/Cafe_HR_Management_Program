@@ -594,6 +594,39 @@ namespace Cafe_Program.App
             while (userInput != "no");
         }
 
+        public static StatusEnum SaveFileMenu()
+        {
+            string userInput;
+            StatusEnum status = StatusEnum.pending;
+
+            do
+            {
+                Messages.DisplayTitle(Utilites.saveFileMenuTitle);
+                Console.WriteLine("Do you want to save all employees in a file?");
+                Messages.DisplayNavigationMessage("Type yes to save, no to cancel operation");
+
+                userInput = Processes.ReturnUserInputProcess();
+                
+                switch (userInput)
+                {
+                    case "yes":
+                        status = Processes.SaveToFileProcess();
+                        break;
+
+                    case "no":
+                        status = StatusEnum.cancel;
+                        break;
+
+                    default:
+                        Messages.DisplayErrorMessage("Incorrect input! Please try again!");
+                        break;
+                }
+            }
+            while (userInput != "no" && userInput != "yes");
+
+            return status;
+        }
+
         public static void AboutMenu()
         {
             string userInput;

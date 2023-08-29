@@ -14,6 +14,7 @@ namespace Cafe_Program.Misc
         public const string employeeOperationsMenuTitle = "***********************************\n**      Employee Opeartions      **\n***********************************";
         public const string currentEmployeesMenuTitle = "***********************************\n**       Current Employees       **\n***********************************";
         public const string removeEmployeesMenuTitle = "***********************************\n**        Remove Employees       **\n***********************************";
+        public const string saveFileMenuTitle = "***********************************\n**       Save Information        **\n***********************************";
         public const string aboutMenuTitle = "***********************************\n**         About Program         **\n***********************************";
 
         public static List<Manager> managers = new List<Manager>();
