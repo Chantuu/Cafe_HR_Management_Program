@@ -522,6 +522,10 @@ namespace Cafe_Program.App
                         {
                             Menus.RemoveEmployeeMenuConfirming(selection, userChoice - 1);
                         }
+                        else if (destination == MenuSelection.financialReportMenu)
+                        {
+                            Menus.FinancialReportMenuResult(selection, userChoice - 1);
+                        }
                         
                     }
                     else
@@ -542,6 +546,11 @@ namespace Cafe_Program.App
                         {
                             Menus.RemoveEmployeeMenuConfirming(selection, userChoice - 1);
                         }
+                        else if (destination == MenuSelection.financialReportMenu)
+                        {
+                            Menus.FinancialReportMenuResult(selection, userChoice - 1);
+                        }
+
                     }
                     else
                     {
@@ -561,6 +570,11 @@ namespace Cafe_Program.App
                         {
                             Menus.RemoveEmployeeMenuConfirming(selection, userChoice - 1);
                         }
+                        else if (destination == MenuSelection.financialReportMenu)
+                        {
+                            Menus.FinancialReportMenuResult(selection, userChoice - 1);
+                        }
+
                     }
                     else
                     {
@@ -580,6 +594,11 @@ namespace Cafe_Program.App
                         {
                             Menus.RemoveEmployeeMenuConfirming(selection, userChoice - 1);
                         }
+                        else if (destination == MenuSelection.financialReportMenu)
+                        {
+                            Menus.FinancialReportMenuResult(selection, userChoice - 1);
+                        }
+
                     }
                     else
                     {
@@ -599,6 +618,11 @@ namespace Cafe_Program.App
                         {
                             Menus.RemoveEmployeeMenuConfirming(selection, userChoice - 1);
                         }
+                        else if (destination == MenuSelection.financialReportMenu)
+                        {
+                            Menus.FinancialReportMenuResult(selection, userChoice - 1);
+                        }
+
                     }
                     else
                     {

@@ -11,6 +11,7 @@ namespace Cafe_Program.Misc
     {
         public const string mainMenuTitle = "***********************************\n**         HR Management         **\n***********************************";
         public const string newEmployeeMenuTitle = "***********************************\n**       Add New Employee        **\n***********************************";
+        public const string financialReportMenuTitle = "***********************************\n**        Financial Report       **\n***********************************";
         public const string employeeOperationsMenuTitle = "***********************************\n**      Employee Opeartions      **\n***********************************";
         public const string currentEmployeesMenuTitle = "***********************************\n**       Current Employees       **\n***********************************";
         public const string removeEmployeesMenuTitle = "***********************************\n**        Remove Employees       **\n***********************************";

@@ -44,6 +44,8 @@ do
 
         case "3":
             Console.Clear();
+            Menus.FinancialReportMenu();
+            Console.Clear();
             break;
 
         case "4":

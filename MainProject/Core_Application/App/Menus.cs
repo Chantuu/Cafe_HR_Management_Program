@@ -343,6 +343,126 @@ namespace Cafe_Program.App
             Console.Clear();
         }
 
+        public static void FinancialReportMenu()
+        {
+            string userInput;
+
+            do
+            {
+                Messages.DisplayTitle(Utilites.financialReportMenuTitle);
+                Console.WriteLine("Please select which type of employee do you want to select:");
+                Processes.DisplayAllEmployeeTypesProcess();
+                Messages.DisplayNavigationMessage("Type menu to go back to Main Menu");
+                userInput = Processes.ReturnUserInputProcess();
+
+                switch (userInput)
+                {
+                    case "1":
+                        Console.Clear();
+                        FinancialReportMenuEmployeeSelection(EmployeeSelection.manager);
+                        break;
+
+                    case "2":
+                        Console.Clear();
+                        FinancialReportMenuEmployeeSelection(EmployeeSelection.accountant);
+                        break;
+
+                    case "3":
+                        Console.Clear();
+                        FinancialReportMenuEmployeeSelection(EmployeeSelection.chef);
+                        break;
+
+                    case "4":
+                        Console.Clear();
+                        FinancialReportMenuEmployeeSelection(EmployeeSelection.bartender);
+                        break;
+
+                    case "5":
+                        Console.Clear();
+                        FinancialReportMenuEmployeeSelection(EmployeeSelection.waitress);
+                        break;
+
+                    case "menu":
+                        break;
+
+                    default:
+                        Messages.DisplayErrorMessage("Incorrect input! Please try again!");
+                        break;
+                }
+            }
+            while (userInput != "menu");
+        }
+
+        public static void FinancialReportMenuEmployeeSelection(EmployeeSelection selection)
+        {
+            string userInput;
+
+            do
+            {
+                Messages.DisplayTitle(Utilites.financialReportMenuTitle);
+                Console.WriteLine("Please select employee to generate his/her financial report:");
+                Processes.ListEmployeeTypeBasedIndexedProcess(selection);
+                Messages.DisplayNavigationMessage("Type back to go back");
+                userInput = Processes.ReturnUserInputProcess();
+
+                switch (userInput)
+                {
+                    case "back":
+                        Console.Clear();
+                        break;
+
+                    default:
+                        try
+                        {
+                            int userChoice = int.Parse(userInput);
+                            Processes.ChooseEmployeeAndMenuProcess(selection, userChoice, MenuSelection.financialReportMenu);
+                        }
+                        catch
+                        {
+                            Messages.DisplayErrorMessage("Incorrect input! Please try again!");
+                        }
+                        break;
+                }
+            }
+            while (userInput != "back");
+        }
+
+        public static void FinancialReportMenuResult(EmployeeSelection selection, int employeeIndex)
+        {
+            Messages.DisplayTitle(Utilites.financialReportMenuTitle);
+
+            switch (selection)
+            {
+                case EmployeeSelection.manager:
+                    Manager manager = Utilites.managers[employeeIndex];
+                    manager.DisplayFinancialReport();
+                    break;
+
+                case EmployeeSelection.accountant:
+                    Accountant accountant = Utilites.accoutants[employeeIndex];
+                    accountant.DisplayFinancialReport();
+                    break;
+
+                case EmployeeSelection.chef:
+                    Chef chef = Utilites.chefs[employeeIndex];
+                    chef.DisplayFinancialReport();
+                    break;
+
+                case EmployeeSelection.bartender:
+                    Bartender bartender = Utilites.bartenders[employeeIndex];
+                    bartender.DisplayFinancialReport();
+                    break;
+
+                case EmployeeSelection.waitress: 
+                    Waitress waitress = Utilites.waitresses[employeeIndex];
+                    waitress.DisplayFinancialReport();
+                    break;
+            }
+
+            Messages.DisplayNavigationMessage("Press enter to go back");
+            Console.ReadLine();
+        }
+
         public static void NewEmployeeMenu()
         {
             string userInput;
@@ -353,7 +473,6 @@ namespace Cafe_Program.App
                 Console.WriteLine("Please select role for new Employee:");
                 Processes.DisplayAllEmployeeTypesProcess();
                 Messages.DisplayNavigationMessage("Type menu to go back to Main Menu");
-
                 userInput = Processes.ReturnUserInputProcess();
 
                 switch (userInput)
