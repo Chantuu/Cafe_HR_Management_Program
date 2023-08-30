@@ -20,7 +20,10 @@ namespace Cafe_Program.HR
         private DateOnly hireDate;
 
         protected int numberOfHoursWorked;
-        protected int bonusCount;
+
+        protected List<double> wagesGiven = new List<double>();
+        protected List<double> bonusesGiven = new List<double>();
+        protected int allHoursWorkedCount;
 
         public string FirstName
         {
@@ -64,6 +67,24 @@ namespace Cafe_Program.HR
             protected set { rate = value; }
         }
 
+        public List<double> WagesGiven
+        {
+            get { return wagesGiven; }
+            protected set { wagesGiven = value; }
+        }
+
+        public List<double> BonusesGiven
+        {
+            get { return bonusesGiven; }
+            protected set { bonusesGiven = value; }
+        }
+
+        public int AllHoursWorked
+        {
+            get { return allHoursWorkedCount; }
+            protected set { allHoursWorkedCount = value; }
+        }
+
         public Employee(string firstName, string lastName, string email, double rate, DateOnly birthDate, DateOnly hireDate, string address1, string address2, string zipcode, string city) 
         {
             FirstName = firstName;
@@ -79,19 +100,21 @@ namespace Cafe_Program.HR
         public virtual void PerformWork(int numberOfHours)
         {
             numberOfHoursWorked = numberOfHours;
+            AllHoursWorked += numberOfHours;
             Console.WriteLine($"{FirstName} {LastName} has totally worked for {numberOfHoursWorked}(s)");
         }
 
-        public virtual void GiveBonus(int bonus=10)
+        public virtual void GiveBonus(double bonus=10)
         {
-            bonusCount += bonus;
+            BonusesGiven.Add(bonus);
             Console.WriteLine($"{FirstName} {LastName} has been given bonus of {bonus}$");
         }
 
         public virtual void GiveWage()
         {
-            double wage = (Rate * numberOfHoursWorked) + bonusCount;
+            double wage = (Rate * numberOfHoursWorked) + BonusesGiven.Sum();
             Console.WriteLine($"{FirstName} {LastName} has been given wage of {wage}$");
+            WagesGiven.Add(wage);
         }
 
         public virtual void DisplayShortInfo()
@@ -108,6 +131,11 @@ namespace Cafe_Program.HR
         {
             Console.WriteLine($"Name: {FirstName} {LastName}\nEmail: {Email}\nRate: {Rate}\nBirth Date: {BirthDate}\nHire Date: {HireDate}\n");
             Address.Display();
+        }
+
+        public virtual void DisplayFinancialReport()
+        {
+            Console.WriteLine($"Name: {FirstName} {LastName}\nEmail: {Email}\nRate: {Rate}\nHire Date: {HireDate}\n\nTotal hours worked: {AllHoursWorked}\nBonuses given: {BonusesGiven.Count}\nWages given: {WagesGiven.Count}\nTotal wage given: {wagesGiven.Sum()}");
         }
     }
 }
