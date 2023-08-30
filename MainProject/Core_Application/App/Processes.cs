@@ -610,8 +610,8 @@ namespace Cafe_Program.App
 
         public static StatusEnum SaveToFileProcess()
         {
-            string programPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            string filepath = Path.Combine(programPath, "employees.txt");
+            
+
             StatusEnum status = StatusEnum.pending;
 
             StringBuilder sb = new StringBuilder();
@@ -654,14 +654,14 @@ namespace Cafe_Program.App
             
             try
             {
-                if (!File.Exists(filepath))
+                if (!File.Exists(Utilites.filepath))
                 {
-                    File.Create(filepath);
-                    File.WriteAllText(filepath, sb.ToString());
+                    File.Create(Utilites.filepath);
+                    File.WriteAllText(Utilites.filepath, sb.ToString());
                 }
-                else if (File.Exists(filepath))
+                else if (File.Exists(Utilites.filepath))
                 {
-                    File.WriteAllText(filepath, sb.ToString());
+                    File.WriteAllText(Utilites.filepath, sb.ToString());
                 }
                 status = StatusEnum.success;
             }

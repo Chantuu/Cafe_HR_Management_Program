@@ -17,6 +17,9 @@ namespace Cafe_Program.Misc
         public const string saveFileMenuTitle = "***********************************\n**       Save Information        **\n***********************************";
         public const string aboutMenuTitle = "***********************************\n**         About Program         **\n***********************************";
 
+        public static string programPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        public static string filepath = Path.Combine(programPath, "employees.txt");
+
         public static List<Manager> managers = new List<Manager>();
         public static List<Accountant> accoutants = new List<Accountant>();
         public static List<Chef> chefs = new List<Chef>();
