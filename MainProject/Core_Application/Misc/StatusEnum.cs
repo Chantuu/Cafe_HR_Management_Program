@@ -11,6 +11,7 @@ namespace Cafe_Program.Misc
         pending,
         success,
         error,
+        fileNotFound,
         cancel
     }
 }

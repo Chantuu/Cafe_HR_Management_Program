@@ -10,6 +10,20 @@ Utilites.chefs.Add(new Cafe_Program.HR.Chef("Gio", "Chanturia", "gio@gmail.com",
 Utilites.bartenders.Add(new Cafe_Program.HR.Bartender("Gio", "Chanturia", "gio@gmail.com", 23, DateOnly.FromDateTime(new DateTime(2003, 10, 23)), DateOnly.FromDateTime(DateTime.Now), "Address1", "", "4400", "Poti"));
 Utilites.waitresses.Add(new Cafe_Program.HR.Waitress("Gio", "Chanturia", "gio@gmail.com", 23, DateOnly.FromDateTime(new DateTime(2003, 10, 23)), DateOnly.FromDateTime(DateTime.Now), "Address1", "", "4400", "Poti"));
 
+StatusEnum loadResult = Processes.LoadUsersFromFile();
+if (loadResult == StatusEnum.success)
+{
+    Messages.DisplaySuccessMessage("Successfully loaded all employees from a file!");
+}
+else if (loadResult == StatusEnum.error)
+{
+    Messages.DisplayErrorMessage("Unable to fully load employees from a file!\nUncorrupted employee data was able to load!");
+}
+else if (loadResult == StatusEnum.fileNotFound)
+{
+    Messages.DisplayInformationMessage("File was not found!");
+}
+
 do
 {
     userInput = Menus.MainMenu();

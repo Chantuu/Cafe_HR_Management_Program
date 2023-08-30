@@ -652,20 +652,76 @@ namespace Cafe_Program.App
             
             try
             {
-                if (!File.Exists(Utilites.filepath))
-                {
-                    File.Create(Utilites.filepath);
-                    File.WriteAllText(Utilites.filepath, sb.ToString().Substring(0, sb.ToString().Length-1));
-                }
-                else if (File.Exists(Utilites.filepath))
-                {
-                    File.WriteAllText(Utilites.filepath, sb.ToString().Substring(0, sb.ToString().Length-1));
-                }
+                File.WriteAllText(Utilites.filepath, sb.ToString().Substring(0, sb.ToString().Length-1));
                 status = StatusEnum.success;
             }
-            catch (Exception ex)
+            catch
             {
                 status = StatusEnum.error;
+            }
+
+            return status;
+        }
+
+        public static StatusEnum LoadUsersFromFile()
+        {
+            StatusEnum status = StatusEnum.pending;
+
+            try
+            {
+                string fileContent = File.ReadAllText(Utilites.filepath);
+                string[] employeeArray = fileContent.Split("#");
+
+                foreach (string employee in employeeArray)
+                {
+                    try
+                    {
+                        string type = employee.Split(">")[0];
+                        string employeeDetails = employee.Split(">")[1];
+
+                        string firstName = employeeDetails.Split(",")[0];
+                        string lastName = employeeDetails.Split(",")[1];
+                        string email = employeeDetails.Split(",")[2];
+                        double rate = Double.Parse(employeeDetails.Split(",")[3]);
+                        DateOnly birthDate = DateOnly.Parse(employeeDetails.Split(",")[4]);
+                        DateOnly hireDate = DateOnly.Parse(employeeDetails.Split(",")[5]);
+                        string address1 = employeeDetails.Split(",")[6];
+                        string address2 = employeeDetails.Split(",")[7];
+                        string zipcode = employeeDetails.Split(",")[8];
+                        string city = employeeDetails.Split(",")[9];
+
+                        if (type == "manager")
+                        {
+                            Utilites.managers.Add(new Manager(firstName, lastName, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
+                        }
+                        else if (type == "accountant")
+                        {
+                            Utilites.accoutants.Add(new Accountant(firstName, lastName, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
+                        }
+                        else if (type == "chef")
+                        {
+                            Utilites.chefs.Add(new Chef(firstName, lastName, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
+                        }
+                        else if (type == "bartender")
+                        {
+                            Utilites.bartenders.Add(new Bartender(firstName, lastName, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
+                        }
+                        else if (type == "waitress")
+                        {
+                            Utilites.waitresses.Add(new Waitress(firstName, lastName, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
+                        }
+
+                        status = StatusEnum.success;
+                    }
+                    catch
+                    {
+                        status = StatusEnum.error;
+                    }
+                }
+            }
+            catch
+            {
+                status = StatusEnum.fileNotFound;
             }
 
             return status;
