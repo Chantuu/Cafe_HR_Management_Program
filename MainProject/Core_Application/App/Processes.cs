@@ -609,9 +609,7 @@ namespace Cafe_Program.App
         }
 
         public static StatusEnum SaveToFileProcess()
-        {
-            
-
+        { 
             StatusEnum status = StatusEnum.pending;
 
             StringBuilder sb = new StringBuilder();
@@ -620,35 +618,35 @@ namespace Cafe_Program.App
             {
                 foreach (Manager manager in Utilites.managers)
                 {
-                    sb.Append($"manager>{manager.FirstName},{manager.LastName},{manager.Email},{manager.Rate},{manager.BirthDate},{manager.HireDate},{manager.Address},{manager.Address.Address_1},{manager.Address.Address_2},{manager.Address.Zipcode},{manager.Address.City}#");
+                    sb.Append($"manager>{manager.FirstName},{manager.LastName},{manager.Email},{manager.Rate},{manager.BirthDate},{manager.HireDate},{manager.Address.Address_1},{manager.Address.Address_2},{manager.Address.Zipcode},{manager.Address.City}#");
                 }
             }
             if (Utilites.accoutants.Count > 0)
             {
                 foreach (Accountant accountant in Utilites.accoutants)
                 {
-                    sb.Append($"accountant>{accountant.FirstName},{accountant.LastName},{accountant.Email},{accountant.Rate},{accountant.BirthDate},{accountant.HireDate},{accountant.Address},{accountant.Address.Address_1},{accountant.Address.Address_2},{accountant.Address.Zipcode},{accountant.Address.City}#");
+                    sb.Append($"accountant>{accountant.FirstName},{accountant.LastName},{accountant.Email},{accountant.Rate},{accountant.BirthDate},{accountant.HireDate},{accountant.Address.Address_1},{accountant.Address.Address_2},{accountant.Address.Zipcode},{accountant.Address.City}#");
                 }
             }
             if (Utilites.chefs.Count > 0)
             {
                 foreach (Chef chef in Utilites.chefs)
                 {
-                    sb.Append($"chef>{chef.FirstName},{chef.LastName},{chef.Email},{chef.Rate},{chef.BirthDate},{chef.HireDate},{chef.Address},{chef.Address.Address_1},{chef.Address.Address_2},{chef.Address.Zipcode},{chef.Address.City}#");
+                    sb.Append($"chef>{chef.FirstName},{chef.LastName},{chef.Email},{chef.Rate},{chef.BirthDate},{chef.HireDate},{chef.Address.Address_1},{chef.Address.Address_2},{chef.Address.Zipcode},{chef.Address.City}#");
                 }
             }
             if (Utilites.bartenders.Count > 0)
             {
                 foreach (Bartender bartender in Utilites.bartenders)
                 {
-                    sb.Append($"bartender>{bartender.FirstName},{bartender.LastName},{bartender.Email},{bartender.Rate},{bartender.BirthDate},{bartender.HireDate},{bartender.Address},{bartender.Address.Address_1},{bartender.Address.Address_2},{bartender.Address.Zipcode},{bartender.Address.City}#");
+                    sb.Append($"bartender>{bartender.FirstName},{bartender.LastName},{bartender.Email},{bartender.Rate},{bartender.BirthDate},{bartender.HireDate},{bartender.Address.Address_1},{bartender.Address.Address_2},{bartender.Address.Zipcode},{bartender.Address.City}#");
                 }
             }
             if (Utilites.waitresses.Count > 0)
             {
                 foreach (Waitress waitress in Utilites.waitresses)
                 {
-                    sb.Append($"waitress>{waitress.FirstName},{waitress.LastName},{waitress.Email},{waitress.Rate},{waitress.BirthDate},{waitress.HireDate},{waitress.Address},{waitress.Address.Address_1},{waitress.Address.Address_2},{waitress.Address.Zipcode},{waitress.Address.City}#");
+                    sb.Append($"waitress>{waitress.FirstName},{waitress.LastName},{waitress.Email},{waitress.Rate},{waitress.BirthDate},{waitress.HireDate},{waitress.Address.Address_1},{waitress.Address.Address_2},{waitress.Address.Zipcode},{waitress.Address.City}#");
                 }
             }
             
@@ -657,11 +655,11 @@ namespace Cafe_Program.App
                 if (!File.Exists(Utilites.filepath))
                 {
                     File.Create(Utilites.filepath);
-                    File.WriteAllText(Utilites.filepath, sb.ToString());
+                    File.WriteAllText(Utilites.filepath, sb.ToString().Substring(0, sb.ToString().Length-1));
                 }
                 else if (File.Exists(Utilites.filepath))
                 {
-                    File.WriteAllText(Utilites.filepath, sb.ToString());
+                    File.WriteAllText(Utilites.filepath, sb.ToString().Substring(0, sb.ToString().Length-1));
                 }
                 status = StatusEnum.success;
             }
