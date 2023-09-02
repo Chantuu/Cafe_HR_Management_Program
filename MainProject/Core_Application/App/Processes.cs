@@ -11,36 +11,36 @@ namespace Cafe_Program.App
         {
             Messages.DisplayTitle(Utilites.newEmployeeMenuTitle);
             Console.Write("Please input new employee name: ");
-            string name = Console.ReadLine();
+            string name = Console.ReadLine() ?? "";
 
             Console.Write("Please input new employee surname: ");
-            string surname = Console.ReadLine();
+            string surname = Console.ReadLine() ?? "";
 
             Console.Write("Please input new employee email: ");
-            string email = Console.ReadLine();
+            string email = Console.ReadLine() ?? "";
 
             Console.Write("Please input new employee rate: ");
             try
             {
-                double rate = Double.Parse(Console.ReadLine());
+                double rate = Double.Parse(Console.ReadLine() ?? "");
 
                 Console.Write("Please input employee birth date in 'DD/MM/YYYY' format: ");
                 try
                 {
-                    DateOnly birthDate = DateOnly.Parse(Console.ReadLine());
+                    DateOnly birthDate = DateOnly.Parse(Console.ReadLine() ?? "");
                     DateOnly hireDate = DateOnly.FromDateTime(DateTime.Now);
 
                     Console.Write("Please input 1st street address of new employee: ");
-                    string address1 = Console.ReadLine();
+                    string address1 = Console.ReadLine() ?? "";
 
                     Console.Write("Please input 2nd street address of new employee (Press enter, if it is not available): ");
-                    string address2 = Console.ReadLine();
+                    string address2 = Console.ReadLine() ?? "";
 
                     Console.Write("Please input zipcode of new employee: ");
-                    string zipcode = Console.ReadLine();
+                    string zipcode = Console.ReadLine() ?? "";
 
                     Console.Write("Please input city of new employee: ");
-                    string city = Console.ReadLine();
+                    string city = Console.ReadLine() ?? "";
 
                     switch (selection)
                     {
@@ -66,7 +66,7 @@ namespace Cafe_Program.App
 
                     }
 
-                    Messages.DisplaySuccessMessage("New employee has been successfully added to application!");
+                    Messages.DisplaySuccessMessage(Utilites.employeeAdditionSuccessMessage);
 
                 }
                 catch (FormatException ex)
@@ -153,7 +153,7 @@ namespace Cafe_Program.App
                 case EmployeeSelection.manager:
                     if (Utilites.managers.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage("There are not any manager employees");
+                        Messages.DisplayListWarningMessage(Utilites.noManagerInListMessage);
                     }
                     else
                     {
@@ -168,7 +168,7 @@ namespace Cafe_Program.App
                 case EmployeeSelection.accountant:
                     if (Utilites.accoutants.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage("There are not any accountant employees");
+                        Messages.DisplayListWarningMessage(Utilites.noAccountantInListMessage);
                     }
                     else
                     {
@@ -183,7 +183,7 @@ namespace Cafe_Program.App
                 case EmployeeSelection.chef:
                     if (Utilites.chefs.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage("There are not any chef employees");
+                        Messages.DisplayListWarningMessage(Utilites.noChefInListMessage);
                     }
                     else
                     {
@@ -198,7 +198,7 @@ namespace Cafe_Program.App
                 case EmployeeSelection.bartender:
                     if (Utilites.bartenders.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage("There are not any bartender employees");
+                        Messages.DisplayListWarningMessage(Utilites.noBartenderInListMessage);
                     }
                     else
                     {
@@ -213,7 +213,7 @@ namespace Cafe_Program.App
                 case EmployeeSelection.waitress:
                     if (Utilites.waitresses.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage("There are not any waitress employees");
+                        Messages.DisplayListWarningMessage(Utilites.noWaitressInListMessage);
                     }
                     else
                     {
@@ -235,7 +235,7 @@ namespace Cafe_Program.App
             {
                 case 1:
                     Console.Write("Please specify, how much hours has employee worked: ");
-                    string userInput = Console.ReadLine();
+                    string userInput = Console.ReadLine() ?? "";
                     
                     try
                     {
@@ -313,7 +313,7 @@ namespace Cafe_Program.App
                         break;
 
                     default:
-                        Messages.DisplayErrorMessage("Incorrect Input! Please try again!");
+                        Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
 
                         switch (currentPage)
                         {
@@ -357,7 +357,7 @@ namespace Cafe_Program.App
                 case EmployeeSelection.manager:
                     if (Utilites.managers.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage("There are not any manager employees");
+                        Messages.DisplayListWarningMessage(Utilites.noManagerInListMessage);
                     }
                     else
                     {
@@ -371,7 +371,7 @@ namespace Cafe_Program.App
                 case EmployeeSelection.accountant:
                     if (Utilites.accoutants.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage("There are not any accountant employees");
+                        Messages.DisplayListWarningMessage(Utilites.noAccountantInListMessage);
                     }
                     else
                     {
@@ -385,7 +385,7 @@ namespace Cafe_Program.App
                 case EmployeeSelection.chef:
                     if (Utilites.chefs.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage("There are not any chef employees");
+                        Messages.DisplayListWarningMessage(Utilites.noChefInListMessage);
                     }
                     else
                     {
@@ -399,7 +399,7 @@ namespace Cafe_Program.App
                 case EmployeeSelection.bartender:
                     if (Utilites.bartenders.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage("There are not any bartender employees");
+                        Messages.DisplayListWarningMessage(Utilites.noBartenderInListMessage);
                     }
                     else
                     {
@@ -413,7 +413,7 @@ namespace Cafe_Program.App
                 case EmployeeSelection.waitress:
                     if (Utilites.waitresses.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage("There are not any waitress employees");
+                        Messages.DisplayListWarningMessage(Utilites.noWaitressInListMessage);
                     }
                     else
                     {
@@ -427,7 +427,7 @@ namespace Cafe_Program.App
                 case EmployeeSelection.all:
                     if (Utilites.managers.Count == 0 && Utilites.accoutants.Count == 0 && Utilites.chefs.Count == 0 && Utilites.bartenders.Count == 00 && Utilites.waitresses.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage("There are not any current employees");
+                        Messages.DisplayListWarningMessage(Utilites.noCurrentEmployeesInListMessage);
                     }
                     else
                     {
@@ -466,7 +466,7 @@ namespace Cafe_Program.App
         {
             Console.Write("Your input: ");
 
-            string userInput = Console.ReadLine();
+            string userInput = Console.ReadLine() ?? "";
             return userInput;
         }
 
@@ -530,7 +530,7 @@ namespace Cafe_Program.App
                     }
                     else
                     {
-                        Messages.DisplayErrorMessage("Incorrect Selection! Please try again!");
+                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
                     }
                     break;
 
@@ -554,7 +554,7 @@ namespace Cafe_Program.App
                     }
                     else
                     {
-                        Messages.DisplayErrorMessage("Incorrect Selection! Please try again!");
+                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
                     }
                     break;
 
@@ -578,7 +578,7 @@ namespace Cafe_Program.App
                     }
                     else
                     {
-                        Messages.DisplayErrorMessage("Incorrect Selection! Please try again!");
+                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
                     }
                     break;
 
@@ -602,7 +602,7 @@ namespace Cafe_Program.App
                     }
                     else
                     {
-                        Messages.DisplayErrorMessage("Incorrect Selection! Please try again!");
+                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
                     }
                     break;
 
@@ -626,7 +626,7 @@ namespace Cafe_Program.App
                     }
                     else
                     {
-                        Messages.DisplayErrorMessage("Incorrect Selection! Please try again!");
+                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
                     }
                     break;
             }

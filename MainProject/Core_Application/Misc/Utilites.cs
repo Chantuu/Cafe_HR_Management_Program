@@ -26,5 +26,23 @@ namespace Cafe_Program.Misc
         public static List<Chef> chefs = new List<Chef>();
         public static List<Bartender> bartenders = new List<Bartender>();
         public static List<Waitress> waitresses = new List<Waitress>();
+
+        public const string incorrectInputMessage = "Incorrect Input! Please try again!";
+        public const string incorrectChoiceMessage = "Incorrect choice! Please try again!";
+        public const string operationCancelledUserMessage = "Operation has been cancelled by user!";
+        public const string employeeRemovalSuccessMessage = "Successfully removed employee!";
+        public const string employeeAdditionSuccessMessage = "New employee has been successfully added to application!";
+
+        public const string noManagerInListMessage = "There aren't any manager employees!";
+        public const string noAccountantInListMessage = "There aren't any accountant employees!";
+        public const string noChefInListMessage = "There aren't any chef employees!";
+        public const string noBartenderInListMessage = "There aren't any bartender employees!";
+        public const string noWaitressInListMessage = "There aren't any waitress employees!";
+        public const string noCurrentEmployeesInListMessage = "There aren't any current employees!";
+
+        public const string navigationToMenuMessage = "Type menu to go back to Main Menu";
+        public const string navigationToPreviousMessage = "Type back to go back";
+        public const string navigationPressEnterMessage = "Press enter to go back!";
+        public const string navigationConfirmationMessage = "Type yes to continue, no to cancel";
     }
 }

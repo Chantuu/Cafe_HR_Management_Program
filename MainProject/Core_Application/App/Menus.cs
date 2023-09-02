@@ -23,6 +23,57 @@ namespace Cafe_Program.App
             return userInput;
         }
 
+        public static void NewEmployeeMenu()
+        {
+            string userInput;
+
+            do
+            {
+                Messages.DisplayTitle(Utilites.newEmployeeMenuTitle);
+                Console.WriteLine("Please select role for new Employee:");
+                Processes.DisplayAllEmployeeTypesProcess();
+                Messages.DisplayNavigationMessage(Utilites.navigationToMenuMessage);
+                userInput = Processes.ReturnUserInputProcess();
+
+                switch (userInput)
+                {
+                    case "1":
+                        Console.Clear();
+                        Processes.AddNewEmployeeProcess(EmployeeSelection.manager);
+                        break;
+
+                    case "2":
+                        Console.Clear();
+                        Processes.AddNewEmployeeProcess(EmployeeSelection.accountant);
+                        break;
+
+                    case "3":
+                        Console.Clear();
+                        Processes.AddNewEmployeeProcess(EmployeeSelection.chef);
+                        break;
+
+                    case "4":
+                        Console.Clear();
+                        Processes.AddNewEmployeeProcess(EmployeeSelection.bartender);
+                        break;
+
+                    case "5":
+                        Console.Clear();
+                        Processes.AddNewEmployeeProcess(EmployeeSelection.waitress);
+                        break;
+
+                    case "menu":
+                        break;
+
+                    default:
+                        Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
+                        break;
+                }
+            }
+            while (userInput != "menu");
+
+        }
+
         public static void EmployeeOperationsMenu()
         {
             string userInput;
@@ -32,7 +83,7 @@ namespace Cafe_Program.App
                 Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
                 Console.WriteLine("Choose which type of employee do you want to select:");
                 Processes.DisplayAllEmployeeTypesProcess();
-                Messages.DisplayNavigationMessage("Type menu to go back to Main Menu");
+                Messages.DisplayNavigationMessage(Utilites.navigationToMenuMessage);
                 
                 userInput = Processes.ReturnUserInputProcess();
 
@@ -67,7 +118,7 @@ namespace Cafe_Program.App
                         break;
 
                     default:
-                        Messages.DisplayErrorMessage("Incorrect Input! Please try again!");
+                        Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
                         break;
                 }
             }
@@ -85,7 +136,7 @@ namespace Cafe_Program.App
 
                 Processes.ListEmployeeTypeBasedIndexedProcess(selection);
 
-                Messages.DisplayNavigationMessage("Type back to go back");
+                Messages.DisplayNavigationMessage(Utilites.navigationToPreviousMessage);
                 userInput = Processes.ReturnUserInputProcess();
 
                 switch (userInput)
@@ -144,7 +195,7 @@ namespace Cafe_Program.App
                         break;
                 }
 
-                Messages.DisplayNavigationMessage("Type back to go back");
+                Messages.DisplayNavigationMessage(Utilites.navigationToPreviousMessage);
                 userInput = Processes.ReturnUserInputProcess();
 
                 switch (userInput)
@@ -168,7 +219,7 @@ namespace Cafe_Program.App
                                     }
                                     else
                                     {
-                                        Messages.DisplayErrorMessage("Incorrect choice! Please try again!");
+                                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
                                     }
                                     break;
 
@@ -180,7 +231,7 @@ namespace Cafe_Program.App
                                     }
                                     else
                                     {
-                                        Messages.DisplayErrorMessage("Incorrect choice! Please try again!");
+                                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
                                     }
                                     break;
 
@@ -192,7 +243,7 @@ namespace Cafe_Program.App
                                     }
                                     else
                                     {
-                                        Messages.DisplayErrorMessage("Incorrect choice! Please try again!");
+                                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
                                     }
                                     break;
 
@@ -204,7 +255,7 @@ namespace Cafe_Program.App
                                     }
                                     else
                                     {
-                                        Messages.DisplayErrorMessage("Incorrect choice! Please try again!");
+                                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
                                     }
                                     break;
 
@@ -216,7 +267,7 @@ namespace Cafe_Program.App
                                     }
                                     else
                                     {
-                                        Messages.DisplayErrorMessage("Incorrect choice! Please try again!");
+                                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
                                     }
                                     break;
                             }
@@ -316,7 +367,7 @@ namespace Cafe_Program.App
                     else if (operationChoice == 5)
                     {
                         Console.Write("Input how many tables have been cleaned (Press enter for 20 tables): ");
-                        string userInput = Console.ReadLine();
+                        string userInput = Console.ReadLine() ?? "";
 
                         try
                         {
@@ -338,7 +389,7 @@ namespace Cafe_Program.App
                     break;
             }
 
-            Messages.DisplayNavigationMessage("Press enter to go back!");
+            Messages.DisplayNavigationMessage(Utilites.navigationPressEnterMessage);
             Console.ReadLine();
             Console.Clear();
         }
@@ -352,7 +403,7 @@ namespace Cafe_Program.App
                 Messages.DisplayTitle(Utilites.financialReportMenuTitle);
                 Console.WriteLine("Please select which type of employee do you want to select:");
                 Processes.DisplayAllEmployeeTypesProcess();
-                Messages.DisplayNavigationMessage("Type menu to go back to Main Menu");
+                Messages.DisplayNavigationMessage(Utilites.navigationToMenuMessage);
                 userInput = Processes.ReturnUserInputProcess();
 
                 switch (userInput)
@@ -386,7 +437,7 @@ namespace Cafe_Program.App
                         break;
 
                     default:
-                        Messages.DisplayErrorMessage("Incorrect input! Please try again!");
+                        Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
                         break;
                 }
             }
@@ -402,7 +453,7 @@ namespace Cafe_Program.App
                 Messages.DisplayTitle(Utilites.financialReportMenuTitle);
                 Console.WriteLine("Please select employee to generate his/her financial report:");
                 Processes.ListEmployeeTypeBasedIndexedProcess(selection);
-                Messages.DisplayNavigationMessage("Type back to go back");
+                Messages.DisplayNavigationMessage(Utilites.navigationToPreviousMessage);
                 userInput = Processes.ReturnUserInputProcess();
 
                 switch (userInput)
@@ -419,7 +470,7 @@ namespace Cafe_Program.App
                         }
                         catch
                         {
-                            Messages.DisplayErrorMessage("Incorrect input! Please try again!");
+                            Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
                         }
                         break;
                 }
@@ -459,59 +510,8 @@ namespace Cafe_Program.App
                     break;
             }
 
-            Messages.DisplayNavigationMessage("Press enter to go back");
+            Messages.DisplayNavigationMessage(Utilites.navigationPressEnterMessage);
             Console.ReadLine();
-        }
-
-        public static void NewEmployeeMenu()
-        {
-            string userInput;
-
-            do
-            {
-                Messages.DisplayTitle(Utilites.newEmployeeMenuTitle);
-                Console.WriteLine("Please select role for new Employee:");
-                Processes.DisplayAllEmployeeTypesProcess();
-                Messages.DisplayNavigationMessage("Type menu to go back to Main Menu");
-                userInput = Processes.ReturnUserInputProcess();
-
-                switch (userInput)
-                {
-                    case "1":
-                        Console.Clear();
-                        Processes.AddNewEmployeeProcess(EmployeeSelection.manager);
-                        break;
-
-                    case "2":
-                        Console.Clear();
-                        Processes.AddNewEmployeeProcess(EmployeeSelection.accountant);
-                        break;
-
-                    case "3":
-                        Console.Clear();
-                        Processes.AddNewEmployeeProcess(EmployeeSelection.chef);
-                        break;
-
-                    case "4":
-                        Console.Clear();
-                        Processes.AddNewEmployeeProcess(EmployeeSelection.bartender);
-                        break;
-
-                    case "5":
-                        Console.Clear();
-                        Processes.AddNewEmployeeProcess(EmployeeSelection.waitress);
-                        break;
-
-                    case "menu":
-                        break;
-
-                    default:
-                        Messages.DisplayErrorMessage("Incorrect Input! Please Try again!");
-                        break;
-                }
-            }
-            while (userInput != "menu");
-
         }
 
         public static void CurrentEmployeesMenuPage1(ref string choice)
@@ -583,7 +583,7 @@ namespace Cafe_Program.App
                 Messages.DisplayTitle(Utilites.removeEmployeesMenuTitle);
                 Console.WriteLine("Please select which type of employee do you want to remove:");
                 Processes.DisplayAllEmployeeTypesProcess();
-                Messages.DisplayNavigationMessage("Type menu to go back to Main Menu");
+                Messages.DisplayNavigationMessage(Utilites.navigationToMenuMessage);
                 userInput = Processes.ReturnUserInputProcess();
 
                 switch (userInput)
@@ -617,7 +617,7 @@ namespace Cafe_Program.App
                         break;
 
                     default:
-                        Messages.DisplayErrorMessage("Incorrect Input! Please try again!");
+                        Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
                         break;
                 }
             }
@@ -635,7 +635,7 @@ namespace Cafe_Program.App
 
                 Processes.ListEmployeeTypeBasedIndexedProcess(selection);
 
-                Messages.DisplayNavigationMessage("Type back to go back");
+                Messages.DisplayNavigationMessage(Utilites.navigationToPreviousMessage);
                 userInput = Processes.ReturnUserInputProcess();
 
                 switch (userInput)
@@ -669,7 +669,7 @@ namespace Cafe_Program.App
                 Messages.DisplayTitle(Utilites.removeEmployeesMenuTitle);
                 Console.WriteLine("This action can not be undone!\nAre you sure, You want to remove this employee?");
 
-                Messages.DisplayNavigationMessage("Type yes to continue, no to cancel");
+                Messages.DisplayNavigationMessage(Utilites.navigationConfirmationMessage);
                 userInput = Processes.ReturnUserInputProcess();
 
                 if (userInput == "yes")
@@ -697,16 +697,16 @@ namespace Cafe_Program.App
                             break;
                     }
 
-                    Messages.DisplaySuccessMessage("Successfully removed employee");
+                    Messages.DisplaySuccessMessage(Utilites.employeeRemovalSuccessMessage);
                     break;
                 }
                 else if (userInput == "no")
                 {
-                    Messages.DisplayInformationMessage("Operation has been cancelled by user");
+                    Messages.DisplayInformationMessage(Utilites.operationCancelledUserMessage);
                 }
                 else
                 {
-                    Messages.DisplayErrorMessage("Incorrect Input! Please try again!");
+                    Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
                 }
                 
             }
@@ -722,7 +722,7 @@ namespace Cafe_Program.App
             {
                 Messages.DisplayTitle(Utilites.saveFileMenuTitle);
                 Console.WriteLine("Do you want to save all employees in a file?");
-                Messages.DisplayNavigationMessage("Type yes to save, no to cancel operation");
+                Messages.DisplayNavigationMessage(Utilites.navigationConfirmationMessage);
 
                 userInput = Processes.ReturnUserInputProcess();
                 
@@ -737,7 +737,7 @@ namespace Cafe_Program.App
                         break;
 
                     default:
-                        Messages.DisplayErrorMessage("Incorrect input! Please try again!");
+                        Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
                         break;
                 }
             }
@@ -760,7 +760,7 @@ namespace Cafe_Program.App
                 Console.WriteLine("I hope you have liked my project and");
                 Console.WriteLine("don't forget to check out others on");
                 Console.WriteLine("my GitHub profile!");
-                Messages.DisplayNavigationMessage("Type menu to go back to Main Menu");
+                Messages.DisplayNavigationMessage(Utilites.navigationToMenuMessage);
                 userInput= Processes.ReturnUserInputProcess();
 
                 switch (userInput)
@@ -769,7 +769,7 @@ namespace Cafe_Program.App
                         break;
 
                     default:
-                        Messages.DisplayErrorMessage("Incorrect input! Please try again!");
+                        Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
                         break;
                 }
             }
