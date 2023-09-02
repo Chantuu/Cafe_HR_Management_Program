@@ -1,6 +1,5 @@
 ﻿using Cafe_Program.HR;
 using Cafe_Program.Misc;
-using System.IO;
 using System.Text;
 
 namespace Cafe_Program.App
@@ -11,36 +10,36 @@ namespace Cafe_Program.App
         {
             Messages.DisplayTitle(Utilities.newEmployeeMenuTitle);
             Console.Write("Please input new employee name: ");
-            string name = Console.ReadLine() ?? "";
+            string name = Console.ReadLine();
 
             Console.Write("Please input new employee surname: ");
-            string surname = Console.ReadLine() ?? "";
+            string surname = Console.ReadLine();
 
             Console.Write("Please input new employee email: ");
-            string email = Console.ReadLine() ?? "";
+            string email = Console.ReadLine();
 
             Console.Write("Please input new employee rate: ");
             try
             {
-                double rate = Double.Parse(Console.ReadLine() ?? "");
+                double rate = Double.Parse(Console.ReadLine());
 
                 Console.Write("Please input employee birth date in 'DD/MM/YYYY' format: ");
                 try
                 {
-                    DateOnly birthDate = DateOnly.Parse(Console.ReadLine() ?? "");
+                    DateOnly birthDate = DateOnly.Parse(Console.ReadLine());
                     DateOnly hireDate = DateOnly.FromDateTime(DateTime.Now);
 
                     Console.Write("Please input 1st street address of new employee: ");
-                    string address1 = Console.ReadLine() ?? "";
+                    string address1 = Console.ReadLine();
 
                     Console.Write("Please input 2nd street address of new employee (Press enter, if it is not available): ");
-                    string address2 = Console.ReadLine() ?? "";
+                    string address2 = Console.ReadLine();
 
                     Console.Write("Please input zipcode of new employee: ");
-                    string zipcode = Console.ReadLine() ?? "";
+                    string zipcode = Console.ReadLine();
 
                     Console.Write("Please input city of new employee: ");
-                    string city = Console.ReadLine() ?? "";
+                    string city = Console.ReadLine();
 
                     switch (selection)
                     {
@@ -69,19 +68,11 @@ namespace Cafe_Program.App
                     Messages.DisplaySuccessMessage(Utilities.employeeAdditionSuccessMessage);
 
                 }
-                catch (FormatException ex)
-                {
-                    Messages.DisplayErrorMessage(ex.Message);
-                }
                 catch (Exception ex)
                 {
                     Messages.DisplayErrorMessage(ex.Message);
                 }
 
-            }
-            catch (FormatException ex)
-            {
-                Messages.DisplayErrorMessage(ex.Message);
             }
             catch (Exception ex)
             {
@@ -235,7 +226,7 @@ namespace Cafe_Program.App
             {
                 case 1:
                     Console.Write("Please specify, how much hours has employee worked: ");
-                    string userInput = Console.ReadLine() ?? "";
+                    string userInput = Console.ReadLine();
                     
                     try
                     {
@@ -466,7 +457,7 @@ namespace Cafe_Program.App
         {
             Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.Write("Your input: ");
-            string userInput = Console.ReadLine() ?? "";
+            string userInput = Console.ReadLine();
             Console.ResetColor();
             return userInput;
         }
