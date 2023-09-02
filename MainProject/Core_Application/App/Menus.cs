@@ -16,9 +16,7 @@ namespace Cafe_Program.App
             Console.WriteLine("5. Remove Employee");
             Console.WriteLine("6. Save To File");
             Console.WriteLine("7. About Application");
-            Console.WriteLine("8. Exit Application");
-            Console.WriteLine();
-
+            Messages.DisplayNavigationMessage(Utilities.navigationExitMessage);
             string userInput = Processes.ReturnUserInputProcess();
             return userInput;
         }

@@ -464,9 +464,10 @@ namespace Cafe_Program.App
 
         public static string ReturnUserInputProcess()
         {
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
             Console.Write("Your input: ");
-
             string userInput = Console.ReadLine() ?? "";
+            Console.ResetColor();
             return userInput;
         }
 

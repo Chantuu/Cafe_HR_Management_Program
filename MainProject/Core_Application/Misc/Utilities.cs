@@ -44,5 +44,6 @@ namespace Cafe_Program.Misc
         public const string navigationToPreviousMessage = "Type back to go back";
         public const string navigationPressEnterMessage = "Press enter to go back";
         public const string navigationConfirmationMessage = "Type yes to continue, no to cancel";
+        public const string navigationExitMessage = "Type exit to quit application";
     }
 }

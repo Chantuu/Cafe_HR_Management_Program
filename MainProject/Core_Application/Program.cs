@@ -3,13 +3,6 @@ using Cafe_Program.Misc;
 
 string userInput;
 
-// Example employees used for testing (Temporary)
-Utilities.managers.Add(new Cafe_Program.HR.Manager("Gio", "Chanturia", "gio@gmail.com", 23, DateOnly.FromDateTime(new DateTime(2003, 10, 23)), DateOnly.FromDateTime(DateTime.Now), "Address1", "", "4400", "Poti"));
-Utilities.accoutants.Add(new Cafe_Program.HR.Accountant("Gio", "Chanturia", "gio@gmail.com", 23, DateOnly.FromDateTime(new DateTime(2003, 10, 23)), DateOnly.FromDateTime(DateTime.Now), "Address1", "", "4400", "Poti"));
-Utilities.chefs.Add(new Cafe_Program.HR.Chef("Gio", "Chanturia", "gio@gmail.com", 23, DateOnly.FromDateTime(new DateTime(2003, 10, 23)), DateOnly.FromDateTime(DateTime.Now), "Address1", "", "4400", "Poti"));
-Utilities.bartenders.Add(new Cafe_Program.HR.Bartender("Gio", "Chanturia", "gio@gmail.com", 23, DateOnly.FromDateTime(new DateTime(2003, 10, 23)), DateOnly.FromDateTime(DateTime.Now), "Address1", "", "4400", "Poti"));
-Utilities.waitresses.Add(new Cafe_Program.HR.Waitress("Gio", "Chanturia", "gio@gmail.com", 23, DateOnly.FromDateTime(new DateTime(2003, 10, 23)), DateOnly.FromDateTime(DateTime.Now), "Address1", "", "4400", "Poti"));
-
 StatusEnum loadResult = Processes.LoadUsersFromFile();
 if (loadResult == StatusEnum.success)
 {
@@ -86,7 +79,7 @@ do
             Console.Clear();
             break;
 
-        case "8":
+        case "exit":
             Console.Clear();
             break;
 
@@ -95,4 +88,4 @@ do
             break;
     }
 }
-while (userInput != "8");
+while (userInput != "exit");
