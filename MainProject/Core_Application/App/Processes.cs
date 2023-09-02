@@ -231,7 +231,6 @@ namespace Cafe_Program.App
                     try
                     {
                         employee.PerformWork(int.Parse(userInput));
-                        break;
                     }
                     catch (Exception e)
                     {
@@ -240,7 +239,24 @@ namespace Cafe_Program.App
                     break;
 
                 case 2:
-                    employee.GiveBonus();
+                    Console.Write("Please specify bonus rate (Leave blank for default): ");
+                    string userInput2 = Console.ReadLine();
+
+                    try
+                    {
+                        if (userInput2 == "")
+                        {
+                            employee.GiveBonus();
+                        }
+                        else
+                        {
+                            employee.GiveBonus(double.Parse(userInput2));
+                        }
+                    }
+                    catch
+                    {
+                        Messages.DisplayErrorMessage(Utilities.incorrectInputMessage);
+                    }
                     break;
 
                 case 3:

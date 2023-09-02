@@ -9,6 +9,7 @@ namespace Cafe_Program.HR
         private string email;
 
         private double rate;
+        private double bonusToGive;
         private Address address;
 
         private DateOnly birthDate;
@@ -62,6 +63,12 @@ namespace Cafe_Program.HR
             protected set { rate = value; }
         }
 
+        public double BonusToGive
+        {
+            get { return bonusToGive; }
+            protected set { bonusToGive = value; }
+        }
+
         public List<double> WagesGiven
         {
             get { return wagesGiven; }
@@ -101,15 +108,25 @@ namespace Cafe_Program.HR
 
         public virtual void GiveBonus(double bonus=10)
         {
+            BonusToGive += bonus;
             BonusesGiven.Add(bonus);
             Console.WriteLine($"{FirstName} {LastName} has been given bonus of {bonus}$");
         }
 
         public virtual void GiveWage()
         {
-            double wage = (Rate * numberOfHoursWorked) + BonusesGiven.Sum();
-            Console.WriteLine($"{FirstName} {LastName} has been given wage of {wage}$");
-            WagesGiven.Add(wage);
+            if (numberOfHoursWorked == 0)
+            {
+                Console.WriteLine("Can't give any wage, because employee has not worked yet!");
+            }
+            else
+            {
+                double wage = (Rate * numberOfHoursWorked) + BonusesGiven.Sum();
+                Console.WriteLine($"{FirstName} {LastName} has been given wage of {wage}$");
+                WagesGiven.Add(wage);
+                numberOfHoursWorked = 0;
+                BonusToGive = 0;
+            }
         }
 
         public virtual void DisplayShortInfo()
