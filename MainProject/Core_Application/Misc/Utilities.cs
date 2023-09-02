@@ -1,9 +1,5 @@
 ﻿using Cafe_Program.HR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace Cafe_Program.Misc
 {
@@ -18,7 +14,7 @@ namespace Cafe_Program.Misc
         public const string saveFileMenuTitle = "***********************************\n**       Save Information        **\n***********************************";
         public const string aboutMenuTitle = "***********************************\n**         About Program         **\n***********************************";
 
-        public static string programPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        public static string programPath = Path.GetDirectoryName(AppContext.BaseDirectory);
         public static string filepath = Path.Combine(programPath, "employees.txt");
 
         public static List<Manager> managers = new List<Manager>();

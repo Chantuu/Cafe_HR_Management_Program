@@ -365,7 +365,7 @@ namespace Cafe_Program.App
                     else if (operationChoice == 5)
                     {
                         Console.Write("Input how many tables have been cleaned (Press enter for 20 tables): ");
-                        string userInput = Console.ReadLine() ?? "";
+                        string userInput = Console.ReadLine();
 
                         try
                         {
