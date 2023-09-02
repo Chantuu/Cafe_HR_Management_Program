@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Cafe_Program.Misc
 {
-    internal class Utilites
+    internal class Utilities
     {
         public const string mainMenuTitle = "***********************************\n**         HR Management         **\n***********************************";
         public const string newEmployeeMenuTitle = "***********************************\n**       Add New Employee        **\n***********************************";
@@ -42,7 +42,7 @@ namespace Cafe_Program.Misc
 
         public const string navigationToMenuMessage = "Type menu to go back to Main Menu";
         public const string navigationToPreviousMessage = "Type back to go back";
-        public const string navigationPressEnterMessage = "Press enter to go back!";
+        public const string navigationPressEnterMessage = "Press enter to go back";
         public const string navigationConfirmationMessage = "Type yes to continue, no to cancel";
     }
 }

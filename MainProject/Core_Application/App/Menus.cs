@@ -7,7 +7,7 @@ namespace Cafe_Program.App
     {
         public static string MainMenu()
         {
-            Messages.DisplayTitle(Utilites.mainMenuTitle);
+            Messages.DisplayTitle(Utilities.mainMenuTitle);
 
             Console.WriteLine("1. Add New Employee");
             Console.WriteLine("2. Employee Operations");
@@ -29,10 +29,10 @@ namespace Cafe_Program.App
 
             do
             {
-                Messages.DisplayTitle(Utilites.newEmployeeMenuTitle);
+                Messages.DisplayTitle(Utilities.newEmployeeMenuTitle);
                 Console.WriteLine("Please select role for new Employee:");
                 Processes.DisplayAllEmployeeTypesProcess();
-                Messages.DisplayNavigationMessage(Utilites.navigationToMenuMessage);
+                Messages.DisplayNavigationMessage(Utilities.navigationToMenuMessage);
                 userInput = Processes.ReturnUserInputProcess();
 
                 switch (userInput)
@@ -66,7 +66,7 @@ namespace Cafe_Program.App
                         break;
 
                     default:
-                        Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
+                        Messages.DisplayErrorMessage(Utilities.incorrectInputMessage);
                         break;
                 }
             }
@@ -80,10 +80,10 @@ namespace Cafe_Program.App
 
             do
             {
-                Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
+                Messages.DisplayTitle(Utilities.currentEmployeesMenuTitle);
                 Console.WriteLine("Choose which type of employee do you want to select:");
                 Processes.DisplayAllEmployeeTypesProcess();
-                Messages.DisplayNavigationMessage(Utilites.navigationToMenuMessage);
+                Messages.DisplayNavigationMessage(Utilities.navigationToMenuMessage);
                 
                 userInput = Processes.ReturnUserInputProcess();
 
@@ -118,7 +118,7 @@ namespace Cafe_Program.App
                         break;
 
                     default:
-                        Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
+                        Messages.DisplayErrorMessage(Utilities.incorrectInputMessage);
                         break;
                 }
             }
@@ -131,12 +131,12 @@ namespace Cafe_Program.App
 
             do
             {
-                Messages.DisplayTitle(Utilites.employeeOperationsMenuTitle);
+                Messages.DisplayTitle(Utilities.employeeOperationsMenuTitle);
                 Console.WriteLine("Please select desired employee: ");
 
                 Processes.ListEmployeeTypeBasedIndexedProcess(selection);
 
-                Messages.DisplayNavigationMessage(Utilites.navigationToPreviousMessage);
+                Messages.DisplayNavigationMessage(Utilities.navigationToPreviousMessage);
                 userInput = Processes.ReturnUserInputProcess();
 
                 switch (userInput)
@@ -168,7 +168,7 @@ namespace Cafe_Program.App
 
             do
             {
-                Messages.DisplayTitle(Utilites.employeeOperationsMenuTitle);
+                Messages.DisplayTitle(Utilities.employeeOperationsMenuTitle);
                 Console.WriteLine("Which operation do you want to perform?");
                 Processes.DisplayCommonEmployeeOpeartionsProcess();
 
@@ -195,7 +195,7 @@ namespace Cafe_Program.App
                         break;
                 }
 
-                Messages.DisplayNavigationMessage(Utilites.navigationToPreviousMessage);
+                Messages.DisplayNavigationMessage(Utilities.navigationToPreviousMessage);
                 userInput = Processes.ReturnUserInputProcess();
 
                 switch (userInput)
@@ -219,7 +219,7 @@ namespace Cafe_Program.App
                                     }
                                     else
                                     {
-                                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
+                                        Messages.DisplayErrorMessage(Utilities.incorrectChoiceMessage);
                                     }
                                     break;
 
@@ -231,7 +231,7 @@ namespace Cafe_Program.App
                                     }
                                     else
                                     {
-                                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
+                                        Messages.DisplayErrorMessage(Utilities.incorrectChoiceMessage);
                                     }
                                     break;
 
@@ -243,7 +243,7 @@ namespace Cafe_Program.App
                                     }
                                     else
                                     {
-                                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
+                                        Messages.DisplayErrorMessage(Utilities.incorrectChoiceMessage);
                                     }
                                     break;
 
@@ -255,7 +255,7 @@ namespace Cafe_Program.App
                                     }
                                     else
                                     {
-                                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
+                                        Messages.DisplayErrorMessage(Utilities.incorrectChoiceMessage);
                                     }
                                     break;
 
@@ -267,7 +267,7 @@ namespace Cafe_Program.App
                                     }
                                     else
                                     {
-                                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
+                                        Messages.DisplayErrorMessage(Utilities.incorrectChoiceMessage);
                                     }
                                     break;
                             }
@@ -284,12 +284,12 @@ namespace Cafe_Program.App
 
         public static void EmployeeOperationsMenuResults(EmployeeSelection selection, int employeeIndex, int operationChoice)
         {
-            Messages.DisplayTitle(Utilites.employeeOperationsMenuTitle);
+            Messages.DisplayTitle(Utilities.employeeOperationsMenuTitle);
 
             switch (selection)
             {
                 case EmployeeSelection.manager:
-                    Manager manager = Utilites.managers[employeeIndex];
+                    Manager manager = Utilities.managers[employeeIndex];
 
                     if (operationChoice >= 1 && operationChoice <= 4)
                     {
@@ -307,7 +307,7 @@ namespace Cafe_Program.App
                     break;
 
                 case EmployeeSelection.accountant:
-                    Accountant accountant = Utilites.accoutants[employeeIndex];
+                    Accountant accountant = Utilities.accoutants[employeeIndex];
 
                     if (operationChoice >= 1 && operationChoice <= 4)
                     {
@@ -325,7 +325,7 @@ namespace Cafe_Program.App
                     break;
 
                 case EmployeeSelection.chef:
-                    Chef chef = Utilites.chefs[employeeIndex];
+                    Chef chef = Utilities.chefs[employeeIndex];
 
                     if (operationChoice >= 1 && operationChoice <= 4)
                     {
@@ -343,7 +343,7 @@ namespace Cafe_Program.App
                     break;
 
                 case EmployeeSelection.bartender:
-                    Bartender bartender = Utilites.bartenders[employeeIndex];
+                    Bartender bartender = Utilities.bartenders[employeeIndex];
 
                     if (operationChoice >= 1 && operationChoice <= 4)
                     {
@@ -358,7 +358,7 @@ namespace Cafe_Program.App
                     break;
 
                 case EmployeeSelection.waitress:
-                    Waitress waitress = Utilites.waitresses[employeeIndex];
+                    Waitress waitress = Utilities.waitresses[employeeIndex];
 
                     if (operationChoice >= 1 && operationChoice <= 4)
                     {
@@ -389,7 +389,7 @@ namespace Cafe_Program.App
                     break;
             }
 
-            Messages.DisplayNavigationMessage(Utilites.navigationPressEnterMessage);
+            Messages.DisplayNavigationMessage(Utilities.navigationPressEnterMessage);
             Console.ReadLine();
             Console.Clear();
         }
@@ -400,10 +400,10 @@ namespace Cafe_Program.App
 
             do
             {
-                Messages.DisplayTitle(Utilites.financialReportMenuTitle);
+                Messages.DisplayTitle(Utilities.financialReportMenuTitle);
                 Console.WriteLine("Please select which type of employee do you want to select:");
                 Processes.DisplayAllEmployeeTypesProcess();
-                Messages.DisplayNavigationMessage(Utilites.navigationToMenuMessage);
+                Messages.DisplayNavigationMessage(Utilities.navigationToMenuMessage);
                 userInput = Processes.ReturnUserInputProcess();
 
                 switch (userInput)
@@ -437,7 +437,7 @@ namespace Cafe_Program.App
                         break;
 
                     default:
-                        Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
+                        Messages.DisplayErrorMessage(Utilities.incorrectInputMessage);
                         break;
                 }
             }
@@ -450,10 +450,10 @@ namespace Cafe_Program.App
 
             do
             {
-                Messages.DisplayTitle(Utilites.financialReportMenuTitle);
+                Messages.DisplayTitle(Utilities.financialReportMenuTitle);
                 Console.WriteLine("Please select employee to generate his/her financial report:");
                 Processes.ListEmployeeTypeBasedIndexedProcess(selection);
-                Messages.DisplayNavigationMessage(Utilites.navigationToPreviousMessage);
+                Messages.DisplayNavigationMessage(Utilities.navigationToPreviousMessage);
                 userInput = Processes.ReturnUserInputProcess();
 
                 switch (userInput)
@@ -470,7 +470,7 @@ namespace Cafe_Program.App
                         }
                         catch
                         {
-                            Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
+                            Messages.DisplayErrorMessage(Utilities.incorrectChoiceMessage);
                         }
                         break;
                 }
@@ -480,43 +480,43 @@ namespace Cafe_Program.App
 
         public static void FinancialReportMenuResult(EmployeeSelection selection, int employeeIndex)
         {
-            Messages.DisplayTitle(Utilites.financialReportMenuTitle);
+            Messages.DisplayTitle(Utilities.financialReportMenuTitle);
 
             switch (selection)
             {
                 case EmployeeSelection.manager:
-                    Manager manager = Utilites.managers[employeeIndex];
+                    Manager manager = Utilities.managers[employeeIndex];
                     manager.DisplayFinancialReport();
                     break;
 
                 case EmployeeSelection.accountant:
-                    Accountant accountant = Utilites.accoutants[employeeIndex];
+                    Accountant accountant = Utilities.accoutants[employeeIndex];
                     accountant.DisplayFinancialReport();
                     break;
 
                 case EmployeeSelection.chef:
-                    Chef chef = Utilites.chefs[employeeIndex];
+                    Chef chef = Utilities.chefs[employeeIndex];
                     chef.DisplayFinancialReport();
                     break;
 
                 case EmployeeSelection.bartender:
-                    Bartender bartender = Utilites.bartenders[employeeIndex];
+                    Bartender bartender = Utilities.bartenders[employeeIndex];
                     bartender.DisplayFinancialReport();
                     break;
 
                 case EmployeeSelection.waitress: 
-                    Waitress waitress = Utilites.waitresses[employeeIndex];
+                    Waitress waitress = Utilities.waitresses[employeeIndex];
                     waitress.DisplayFinancialReport();
                     break;
             }
 
-            Messages.DisplayNavigationMessage(Utilites.navigationPressEnterMessage);
+            Messages.DisplayNavigationMessage(Utilities.navigationPressEnterMessage);
             Console.ReadLine();
         }
 
         public static void CurrentEmployeesMenuPage1(ref string choice)
         {
-            Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
+            Messages.DisplayTitle(Utilities.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current employees:");
             Processes.ListEmployeesNoIndexedProcess(EmployeeSelection.all);
             Messages.DisplayPageMessage(1, 6);
@@ -526,7 +526,7 @@ namespace Cafe_Program.App
 
         public static void CurrentEmployeesMenuPage2(ref string choice)
         {
-            Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
+            Messages.DisplayTitle(Utilities.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current managers:");
             Processes.ListEmployeesNoIndexedProcess(EmployeeSelection.manager);
             Messages.DisplayPageMessage(2, 6);
@@ -536,7 +536,7 @@ namespace Cafe_Program.App
 
         public static void CurrentEmployeesMenuPage3(ref string choice)
         {
-            Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
+            Messages.DisplayTitle(Utilities.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current accountants:");
             Processes.ListEmployeesNoIndexedProcess(EmployeeSelection.accountant);
             Messages.DisplayPageMessage(3, 6);
@@ -546,7 +546,7 @@ namespace Cafe_Program.App
 
         public static void CurrentEmployeesMenuPage4(ref string choice)
         {
-            Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
+            Messages.DisplayTitle(Utilities.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current chefs:");
             Processes.ListEmployeesNoIndexedProcess(EmployeeSelection.chef);
             Messages.DisplayPageMessage(4, 6);
@@ -556,7 +556,7 @@ namespace Cafe_Program.App
 
         public static void CurrentEmployeesMenuPage5(ref string choice)
         {
-            Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
+            Messages.DisplayTitle(Utilities.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current bartenders:");
             Processes.ListEmployeesNoIndexedProcess(EmployeeSelection.bartender);
             Messages.DisplayPageMessage(5, 6);
@@ -566,7 +566,7 @@ namespace Cafe_Program.App
 
         public static void CurrentEmployeesMenuPage6(ref string choice)
         {
-            Messages.DisplayTitle(Utilites.currentEmployeesMenuTitle);
+            Messages.DisplayTitle(Utilities.currentEmployeesMenuTitle);
             Console.WriteLine("Displaying all current waitresses:");
             Processes.ListEmployeesNoIndexedProcess(EmployeeSelection.waitress);
             Messages.DisplayPageMessage(6, 6);
@@ -580,10 +580,10 @@ namespace Cafe_Program.App
 
             do
             {
-                Messages.DisplayTitle(Utilites.removeEmployeesMenuTitle);
+                Messages.DisplayTitle(Utilities.removeEmployeesMenuTitle);
                 Console.WriteLine("Please select which type of employee do you want to remove:");
                 Processes.DisplayAllEmployeeTypesProcess();
-                Messages.DisplayNavigationMessage(Utilites.navigationToMenuMessage);
+                Messages.DisplayNavigationMessage(Utilities.navigationToMenuMessage);
                 userInput = Processes.ReturnUserInputProcess();
 
                 switch (userInput)
@@ -617,7 +617,7 @@ namespace Cafe_Program.App
                         break;
 
                     default:
-                        Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
+                        Messages.DisplayErrorMessage(Utilities.incorrectInputMessage);
                         break;
                 }
             }
@@ -630,12 +630,12 @@ namespace Cafe_Program.App
 
             do
             {
-                Messages.DisplayTitle(Utilites.removeEmployeesMenuTitle);
+                Messages.DisplayTitle(Utilities.removeEmployeesMenuTitle);
                 Console.WriteLine("Please select desired employee to remove: ");
 
                 Processes.ListEmployeeTypeBasedIndexedProcess(selection);
 
-                Messages.DisplayNavigationMessage(Utilites.navigationToPreviousMessage);
+                Messages.DisplayNavigationMessage(Utilities.navigationToPreviousMessage);
                 userInput = Processes.ReturnUserInputProcess();
 
                 switch (userInput)
@@ -666,10 +666,10 @@ namespace Cafe_Program.App
 
             do
             {
-                Messages.DisplayTitle(Utilites.removeEmployeesMenuTitle);
+                Messages.DisplayTitle(Utilities.removeEmployeesMenuTitle);
                 Console.WriteLine("This action can not be undone!\nAre you sure, You want to remove this employee?");
 
-                Messages.DisplayNavigationMessage(Utilites.navigationConfirmationMessage);
+                Messages.DisplayNavigationMessage(Utilities.navigationConfirmationMessage);
                 userInput = Processes.ReturnUserInputProcess();
 
                 if (userInput == "yes")
@@ -677,36 +677,36 @@ namespace Cafe_Program.App
                     switch (selection)
                     {
                         case EmployeeSelection.manager:
-                            Utilites.managers.RemoveAt(employeeIndex);
+                            Utilities.managers.RemoveAt(employeeIndex);
                             break;
 
                         case EmployeeSelection.accountant:
-                            Utilites.accoutants.RemoveAt(employeeIndex);
+                            Utilities.accoutants.RemoveAt(employeeIndex);
                             break;
 
                         case EmployeeSelection.chef:
-                            Utilites.chefs.RemoveAt(employeeIndex);
+                            Utilities.chefs.RemoveAt(employeeIndex);
                             break;
 
                         case EmployeeSelection.bartender:
-                            Utilites.bartenders.RemoveAt(employeeIndex);
+                            Utilities.bartenders.RemoveAt(employeeIndex);
                             break;
 
                         case EmployeeSelection.waitress:
-                            Utilites.waitresses.RemoveAt(employeeIndex);
+                            Utilities.waitresses.RemoveAt(employeeIndex);
                             break;
                     }
 
-                    Messages.DisplaySuccessMessage(Utilites.employeeRemovalSuccessMessage);
+                    Messages.DisplaySuccessMessage(Utilities.employeeRemovalSuccessMessage);
                     break;
                 }
                 else if (userInput == "no")
                 {
-                    Messages.DisplayInformationMessage(Utilites.operationCancelledUserMessage);
+                    Messages.DisplayInformationMessage(Utilities.operationCancelledUserMessage);
                 }
                 else
                 {
-                    Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
+                    Messages.DisplayErrorMessage(Utilities.incorrectInputMessage);
                 }
                 
             }
@@ -720,9 +720,9 @@ namespace Cafe_Program.App
 
             do
             {
-                Messages.DisplayTitle(Utilites.saveFileMenuTitle);
+                Messages.DisplayTitle(Utilities.saveFileMenuTitle);
                 Console.WriteLine("Do you want to save all employees in a file?");
-                Messages.DisplayNavigationMessage(Utilites.navigationConfirmationMessage);
+                Messages.DisplayNavigationMessage(Utilities.navigationConfirmationMessage);
 
                 userInput = Processes.ReturnUserInputProcess();
                 
@@ -737,7 +737,7 @@ namespace Cafe_Program.App
                         break;
 
                     default:
-                        Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
+                        Messages.DisplayErrorMessage(Utilities.incorrectInputMessage);
                         break;
                 }
             }
@@ -752,7 +752,7 @@ namespace Cafe_Program.App
 
             do
             {
-                Messages.DisplayTitle(Utilites.aboutMenuTitle);
+                Messages.DisplayTitle(Utilities.aboutMenuTitle);
                 Console.WriteLine("This project was created for demonstrating");
                 Console.WriteLine("my skills in C# and testing myself in");
                 Console.WriteLine("using all my skills and knownledge.");
@@ -760,7 +760,7 @@ namespace Cafe_Program.App
                 Console.WriteLine("I hope you have liked my project and");
                 Console.WriteLine("don't forget to check out others on");
                 Console.WriteLine("my GitHub profile!");
-                Messages.DisplayNavigationMessage(Utilites.navigationToMenuMessage);
+                Messages.DisplayNavigationMessage(Utilities.navigationToMenuMessage);
                 userInput= Processes.ReturnUserInputProcess();
 
                 switch (userInput)
@@ -769,7 +769,7 @@ namespace Cafe_Program.App
                         break;
 
                     default:
-                        Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
+                        Messages.DisplayErrorMessage(Utilities.incorrectInputMessage);
                         break;
                 }
             }

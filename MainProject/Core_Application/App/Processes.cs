@@ -9,7 +9,7 @@ namespace Cafe_Program.App
     {
         public static void AddNewEmployeeProcess(EmployeeSelection selection)
         {
-            Messages.DisplayTitle(Utilites.newEmployeeMenuTitle);
+            Messages.DisplayTitle(Utilities.newEmployeeMenuTitle);
             Console.Write("Please input new employee name: ");
             string name = Console.ReadLine() ?? "";
 
@@ -45,28 +45,28 @@ namespace Cafe_Program.App
                     switch (selection)
                     {
                         case EmployeeSelection.manager:
-                            Utilites.managers.Add(new Manager(name, surname, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
+                            Utilities.managers.Add(new Manager(name, surname, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
                             break;
 
                         case EmployeeSelection.accountant:
-                            Utilites.accoutants.Add(new Accountant(name, surname, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
+                            Utilities.accoutants.Add(new Accountant(name, surname, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
                             break;
 
                         case EmployeeSelection.chef:
-                            Utilites.chefs.Add(new Chef(name, surname, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
+                            Utilities.chefs.Add(new Chef(name, surname, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
                             break;
 
                         case EmployeeSelection.bartender:
-                            Utilites.bartenders.Add(new Bartender(name, surname, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
+                            Utilities.bartenders.Add(new Bartender(name, surname, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
                             break;
 
                         case EmployeeSelection.waitress:
-                            Utilites.waitresses.Add(new Waitress(name, surname, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
+                            Utilities.waitresses.Add(new Waitress(name, surname, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
                             break;
 
                     }
 
-                    Messages.DisplaySuccessMessage(Utilites.employeeAdditionSuccessMessage);
+                    Messages.DisplaySuccessMessage(Utilities.employeeAdditionSuccessMessage);
 
                 }
                 catch (FormatException ex)
@@ -151,13 +151,13 @@ namespace Cafe_Program.App
             switch (choice)
             {
                 case EmployeeSelection.manager:
-                    if (Utilites.managers.Count == 0)
+                    if (Utilities.managers.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage(Utilites.noManagerInListMessage);
+                        Messages.DisplayListWarningMessage(Utilities.noManagerInListMessage);
                     }
                     else
                     {
-                        foreach (Manager manager in Utilites.managers)
+                        foreach (Manager manager in Utilities.managers)
                         {
                             Console.WriteLine($"{startIndex}. {manager.ReturnShortInfo()}");
                             startIndex += 1;
@@ -166,13 +166,13 @@ namespace Cafe_Program.App
                     break;
 
                 case EmployeeSelection.accountant:
-                    if (Utilites.accoutants.Count == 0)
+                    if (Utilities.accoutants.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage(Utilites.noAccountantInListMessage);
+                        Messages.DisplayListWarningMessage(Utilities.noAccountantInListMessage);
                     }
                     else
                     {
-                        foreach (Accountant accountant in Utilites.accoutants)
+                        foreach (Accountant accountant in Utilities.accoutants)
                         {
                             Console.WriteLine($"{startIndex}. {accountant.ReturnShortInfo()}");
                             startIndex += 1;
@@ -181,13 +181,13 @@ namespace Cafe_Program.App
                     break;
 
                 case EmployeeSelection.chef:
-                    if (Utilites.chefs.Count == 0)
+                    if (Utilities.chefs.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage(Utilites.noChefInListMessage);
+                        Messages.DisplayListWarningMessage(Utilities.noChefInListMessage);
                     }
                     else
                     {
-                        foreach (Chef chef in Utilites.chefs)
+                        foreach (Chef chef in Utilities.chefs)
                         {
                             Console.WriteLine($"{startIndex}. {chef.ReturnShortInfo()}");
                             startIndex += 1;
@@ -196,13 +196,13 @@ namespace Cafe_Program.App
                     break;
 
                 case EmployeeSelection.bartender:
-                    if (Utilites.bartenders.Count == 0)
+                    if (Utilities.bartenders.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage(Utilites.noBartenderInListMessage);
+                        Messages.DisplayListWarningMessage(Utilities.noBartenderInListMessage);
                     }
                     else
                     {
-                        foreach (Bartender bartender in Utilites.bartenders)
+                        foreach (Bartender bartender in Utilities.bartenders)
                         {
                             Console.WriteLine($"{startIndex}. {bartender.ReturnShortInfo()}");
                             startIndex += 1;
@@ -211,13 +211,13 @@ namespace Cafe_Program.App
                     break;
 
                 case EmployeeSelection.waitress:
-                    if (Utilites.waitresses.Count == 0)
+                    if (Utilities.waitresses.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage(Utilites.noWaitressInListMessage);
+                        Messages.DisplayListWarningMessage(Utilities.noWaitressInListMessage);
                     }
                     else
                     {
-                        foreach (Waitress waitress in Utilites.waitresses)
+                        foreach (Waitress waitress in Utilities.waitresses)
                         {
                             Console.WriteLine($"{startIndex}. {waitress.ReturnShortInfo()}");
                             startIndex += 1;
@@ -313,7 +313,7 @@ namespace Cafe_Program.App
                         break;
 
                     default:
-                        Messages.DisplayErrorMessage(Utilites.incorrectInputMessage);
+                        Messages.DisplayErrorMessage(Utilities.incorrectInputMessage);
 
                         switch (currentPage)
                         {
@@ -355,13 +355,13 @@ namespace Cafe_Program.App
             switch (filter)
             {
                 case EmployeeSelection.manager:
-                    if (Utilites.managers.Count == 0)
+                    if (Utilities.managers.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage(Utilites.noManagerInListMessage);
+                        Messages.DisplayListWarningMessage(Utilities.noManagerInListMessage);
                     }
                     else
                     {
-                        foreach (Manager manager in Utilites.managers)
+                        foreach (Manager manager in Utilities.managers)
                         {
                             manager.DisplayShortInfo();
                         }
@@ -369,13 +369,13 @@ namespace Cafe_Program.App
                     break;
 
                 case EmployeeSelection.accountant:
-                    if (Utilites.accoutants.Count == 0)
+                    if (Utilities.accoutants.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage(Utilites.noAccountantInListMessage);
+                        Messages.DisplayListWarningMessage(Utilities.noAccountantInListMessage);
                     }
                     else
                     {
-                        foreach (Accountant accountant in Utilites.accoutants)
+                        foreach (Accountant accountant in Utilities.accoutants)
                         {
                             accountant.DisplayShortInfo();
                         }
@@ -383,13 +383,13 @@ namespace Cafe_Program.App
                     break;
 
                 case EmployeeSelection.chef:
-                    if (Utilites.chefs.Count == 0)
+                    if (Utilities.chefs.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage(Utilites.noChefInListMessage);
+                        Messages.DisplayListWarningMessage(Utilities.noChefInListMessage);
                     }
                     else
                     {
-                        foreach (Chef chef in Utilites.chefs)
+                        foreach (Chef chef in Utilities.chefs)
                         {
                             chef.DisplayShortInfo();
                         }
@@ -397,13 +397,13 @@ namespace Cafe_Program.App
                     break;
 
                 case EmployeeSelection.bartender:
-                    if (Utilites.bartenders.Count == 0)
+                    if (Utilities.bartenders.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage(Utilites.noBartenderInListMessage);
+                        Messages.DisplayListWarningMessage(Utilities.noBartenderInListMessage);
                     }
                     else
                     {
-                        foreach (Bartender bartender in Utilites.bartenders)
+                        foreach (Bartender bartender in Utilities.bartenders)
                         {
                             bartender.DisplayShortInfo();
                         }
@@ -411,13 +411,13 @@ namespace Cafe_Program.App
                     break;
 
                 case EmployeeSelection.waitress:
-                    if (Utilites.waitresses.Count == 0)
+                    if (Utilities.waitresses.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage(Utilites.noWaitressInListMessage);
+                        Messages.DisplayListWarningMessage(Utilities.noWaitressInListMessage);
                     }
                     else
                     {
-                        foreach (Waitress waitress in Utilites.waitresses)
+                        foreach (Waitress waitress in Utilities.waitresses)
                         {
                             waitress.DisplayShortInfo();
                         }
@@ -425,33 +425,33 @@ namespace Cafe_Program.App
                     break;
 
                 case EmployeeSelection.all:
-                    if (Utilites.managers.Count == 0 && Utilites.accoutants.Count == 0 && Utilites.chefs.Count == 0 && Utilites.bartenders.Count == 00 && Utilites.waitresses.Count == 0)
+                    if (Utilities.managers.Count == 0 && Utilities.accoutants.Count == 0 && Utilities.chefs.Count == 0 && Utilities.bartenders.Count == 00 && Utilities.waitresses.Count == 0)
                     {
-                        Messages.DisplayListWarningMessage(Utilites.noCurrentEmployeesInListMessage);
+                        Messages.DisplayListWarningMessage(Utilities.noCurrentEmployeesInListMessage);
                     }
                     else
                     {
-                        foreach (Manager manager in Utilites.managers)
+                        foreach (Manager manager in Utilities.managers)
                         {
                             manager.DisplayShortInfo();
                         }
 
-                        foreach (Accountant accountant in Utilites.accoutants)
+                        foreach (Accountant accountant in Utilities.accoutants)
                         {
                             accountant.DisplayShortInfo();
                         }
 
-                        foreach (Chef chef in Utilites.chefs)
+                        foreach (Chef chef in Utilities.chefs)
                         {
                             chef.DisplayShortInfo();
                         }
 
-                        foreach (Bartender bartender in Utilites.bartenders)
+                        foreach (Bartender bartender in Utilities.bartenders)
                         {
                             bartender.DisplayShortInfo();
                         }
 
-                        foreach (Waitress waitress in Utilites.waitresses)
+                        foreach (Waitress waitress in Utilities.waitresses)
                         {
                             waitress.DisplayShortInfo();
                         }
@@ -511,7 +511,7 @@ namespace Cafe_Program.App
             switch (selection)
             {
                 case EmployeeSelection.manager:
-                    if (userChoice > 0 && userChoice <= Utilites.managers.Count)
+                    if (userChoice > 0 && userChoice <= Utilities.managers.Count)
                     {
                         Console.Clear();
                         if (destination == MenuSelection.employeeOperationsMenu)
@@ -530,12 +530,12 @@ namespace Cafe_Program.App
                     }
                     else
                     {
-                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
+                        Messages.DisplayErrorMessage(Utilities.incorrectChoiceMessage);
                     }
                     break;
 
                 case EmployeeSelection.accountant:
-                    if (userChoice > 0 && userChoice <= Utilites.accoutants.Count)
+                    if (userChoice > 0 && userChoice <= Utilities.accoutants.Count)
                     {
                         Console.Clear();
                         if (destination == MenuSelection.employeeOperationsMenu)
@@ -554,12 +554,12 @@ namespace Cafe_Program.App
                     }
                     else
                     {
-                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
+                        Messages.DisplayErrorMessage(Utilities.incorrectChoiceMessage);
                     }
                     break;
 
                 case EmployeeSelection.chef:
-                    if (userChoice > 0 && userChoice <= Utilites.chefs.Count)
+                    if (userChoice > 0 && userChoice <= Utilities.chefs.Count)
                     {
                         Console.Clear();
                         if (destination == MenuSelection.employeeOperationsMenu)
@@ -578,12 +578,12 @@ namespace Cafe_Program.App
                     }
                     else
                     {
-                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
+                        Messages.DisplayErrorMessage(Utilities.incorrectChoiceMessage);
                     }
                     break;
 
                 case EmployeeSelection.bartender:
-                    if (userChoice > 0 && userChoice <= Utilites.bartenders.Count)
+                    if (userChoice > 0 && userChoice <= Utilities.bartenders.Count)
                     {
                         Console.Clear();
                         if (destination == MenuSelection.employeeOperationsMenu)
@@ -602,12 +602,12 @@ namespace Cafe_Program.App
                     }
                     else
                     {
-                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
+                        Messages.DisplayErrorMessage(Utilities.incorrectChoiceMessage);
                     }
                     break;
 
                 case EmployeeSelection.waitress:
-                    if (userChoice > 0 && userChoice <= Utilites.waitresses.Count)
+                    if (userChoice > 0 && userChoice <= Utilities.waitresses.Count)
                     {
                         Console.Clear();
                         if (destination == MenuSelection.employeeOperationsMenu)
@@ -626,7 +626,7 @@ namespace Cafe_Program.App
                     }
                     else
                     {
-                        Messages.DisplayErrorMessage(Utilites.incorrectChoiceMessage);
+                        Messages.DisplayErrorMessage(Utilities.incorrectChoiceMessage);
                     }
                     break;
             }
@@ -638,37 +638,37 @@ namespace Cafe_Program.App
 
             StringBuilder sb = new StringBuilder();
 
-            if (Utilites.managers.Count > 0)
+            if (Utilities.managers.Count > 0)
             {
-                foreach (Manager manager in Utilites.managers)
+                foreach (Manager manager in Utilities.managers)
                 {
                     sb.Append($"manager>{manager.FirstName},{manager.LastName},{manager.Email},{manager.Rate},{manager.BirthDate},{manager.HireDate},{manager.Address.Address_1},{manager.Address.Address_2},{manager.Address.Zipcode},{manager.Address.City}#");
                 }
             }
-            if (Utilites.accoutants.Count > 0)
+            if (Utilities.accoutants.Count > 0)
             {
-                foreach (Accountant accountant in Utilites.accoutants)
+                foreach (Accountant accountant in Utilities.accoutants)
                 {
                     sb.Append($"accountant>{accountant.FirstName},{accountant.LastName},{accountant.Email},{accountant.Rate},{accountant.BirthDate},{accountant.HireDate},{accountant.Address.Address_1},{accountant.Address.Address_2},{accountant.Address.Zipcode},{accountant.Address.City}#");
                 }
             }
-            if (Utilites.chefs.Count > 0)
+            if (Utilities.chefs.Count > 0)
             {
-                foreach (Chef chef in Utilites.chefs)
+                foreach (Chef chef in Utilities.chefs)
                 {
                     sb.Append($"chef>{chef.FirstName},{chef.LastName},{chef.Email},{chef.Rate},{chef.BirthDate},{chef.HireDate},{chef.Address.Address_1},{chef.Address.Address_2},{chef.Address.Zipcode},{chef.Address.City}#");
                 }
             }
-            if (Utilites.bartenders.Count > 0)
+            if (Utilities.bartenders.Count > 0)
             {
-                foreach (Bartender bartender in Utilites.bartenders)
+                foreach (Bartender bartender in Utilities.bartenders)
                 {
                     sb.Append($"bartender>{bartender.FirstName},{bartender.LastName},{bartender.Email},{bartender.Rate},{bartender.BirthDate},{bartender.HireDate},{bartender.Address.Address_1},{bartender.Address.Address_2},{bartender.Address.Zipcode},{bartender.Address.City}#");
                 }
             }
-            if (Utilites.waitresses.Count > 0)
+            if (Utilities.waitresses.Count > 0)
             {
-                foreach (Waitress waitress in Utilites.waitresses)
+                foreach (Waitress waitress in Utilities.waitresses)
                 {
                     sb.Append($"waitress>{waitress.FirstName},{waitress.LastName},{waitress.Email},{waitress.Rate},{waitress.BirthDate},{waitress.HireDate},{waitress.Address.Address_1},{waitress.Address.Address_2},{waitress.Address.Zipcode},{waitress.Address.City}#");
                 }
@@ -676,7 +676,7 @@ namespace Cafe_Program.App
             
             try
             {
-                File.WriteAllText(Utilites.filepath, sb.ToString().Substring(0, sb.ToString().Length-1));
+                File.WriteAllText(Utilities.filepath, sb.ToString().Substring(0, sb.ToString().Length-1));
                 status = StatusEnum.success;
             }
             catch
@@ -693,7 +693,7 @@ namespace Cafe_Program.App
 
             try
             {
-                string fileContent = File.ReadAllText(Utilites.filepath);
+                string fileContent = File.ReadAllText(Utilities.filepath);
                 string[] employeeArray = fileContent.Split("#");
 
                 foreach (string employee in employeeArray)
@@ -716,23 +716,23 @@ namespace Cafe_Program.App
 
                         if (type == "manager")
                         {
-                            Utilites.managers.Add(new Manager(firstName, lastName, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
+                            Utilities.managers.Add(new Manager(firstName, lastName, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
                         }
                         else if (type == "accountant")
                         {
-                            Utilites.accoutants.Add(new Accountant(firstName, lastName, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
+                            Utilities.accoutants.Add(new Accountant(firstName, lastName, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
                         }
                         else if (type == "chef")
                         {
-                            Utilites.chefs.Add(new Chef(firstName, lastName, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
+                            Utilities.chefs.Add(new Chef(firstName, lastName, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
                         }
                         else if (type == "bartender")
                         {
-                            Utilites.bartenders.Add(new Bartender(firstName, lastName, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
+                            Utilities.bartenders.Add(new Bartender(firstName, lastName, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
                         }
                         else if (type == "waitress")
                         {
-                            Utilites.waitresses.Add(new Waitress(firstName, lastName, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
+                            Utilities.waitresses.Add(new Waitress(firstName, lastName, email, rate, birthDate, hireDate, address1, address2, zipcode, city));
                         }
 
                         status = StatusEnum.success;
