@@ -510,6 +510,7 @@ namespace Cafe_Program.App
 
             Messages.DisplayNavigationMessage(Utilities.navigationPressEnterMessage);
             Console.ReadLine();
+            Console.Clear();
         }
 
         public static void CurrentEmployeesMenuPage1(ref string choice)
